@@ -688,9 +688,9 @@
     { "key": "escape",                "command": "workbench.action.closeQuickOpen",
                                          "when": "inQuickOpen" },
     { "key": "cmd+k u",               "command": "workbench.action.closeUnmodifiedEditors" },
-    { "key": "shift+cmd+w",           "command": "workbench.action.closeWindow" },
     { "key": "cmd+w",                 "command": "workbench.action.closeWindow",
                                          "when": "!editorIsOpen && !multipleEditorGroups" },
+    { "key": "shift+cmd+w",           "command": "workbench.action.closeWindow" },
     { "key": "alt+f5",                "command": "workbench.action.compareEditor.nextChange",
                                          "when": "textCompareEditorVisible" },
     { "key": "shift+alt+f5",          "command": "workbench.action.compareEditor.previousChange",
@@ -934,10 +934,10 @@
                                          "when": "variablesFocused" },
     { "key": "space",                 "command": "debug.toggleBreakpoint",
                                          "when": "breakpointsFocused && !inputFocus" },
-    { "key": "cmd+backspace",         "command": "deleteFile",
-                                         "when": "explorerViewletVisible && filesExplorerFocus && !config.files.enableTrash && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
     { "key": "alt+cmd+backspace",     "command": "deleteFile",
-                                         "when": "config.files.enableTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
+                                         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
+    { "key": "cmd+backspace",         "command": "deleteFile",
+                                         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus" },
     { "key": "escape",                "command": "editor.closeCallHierarchy",
                                          "when": "callHierarchyVisible && !config.editor.stablePeek" },
     { "key": "escape",                "command": "filesExplorer.cancelCut",
@@ -949,7 +949,7 @@
     { "key": "cmd+v",                 "command": "filesExplorer.paste",
                                          "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus" },
     { "key": "cmd+backspace",         "command": "moveFileToTrash",
-                                         "when": "config.files.enableTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
+                                         "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
     { "key": "enter",                 "command": "renameFile",
                                          "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus" },
     { "key": "f11",                   "command": "workbench.action.debug.stepInto",
@@ -1010,12 +1010,24 @@
                                          "when": "!inDebugMode && debugConfigurationType == 'node'" },
     { "key": "shift+f4",              "command": "references-view.prev",
                                          "when": "reference-list.hasResult" },
+    { "key": "ctrl+shift+v",          "command": "clipboard-manager.editor.pickAndPaste",
+                                         "when": "textInputFocus && !editorReadonly" },
+    { "key": "shift+enter",           "command": "colonize.endline",
+                                         "when": "editorTextFocus" },
     { "key": "ctrl+shift+enter",      "command": "extension.completeLine",
                                          "when": "editorTextFocus" },
     { "key": "alt+left",              "command": "gitlens.key.left",
                                          "when": "gitlens:key:left" },
+    { "key": "insert",                "command": "overtype.toggle",
+                                         "when": "editorFocus" },
+    { "key": "alt+enter",             "command": "colonize.newline",
+                                         "when": "editorTextFocus" },
     { "key": "alt+right",             "command": "gitlens.key.right",
                                          "when": "gitlens:key:right" },
+    { "key": "shift+cmd+i",           "command": "overtype.toggle",
+                                         "when": "editorFocus" },
+    { "key": "ctrl+alt+enter",        "command": "colonize.hold",
+                                         "when": "editorTextFocus" },
     { "key": "alt+,",                 "command": "gitlens.key.,",
                                          "when": "gitlens:key:," },
     { "key": "alt+.",                 "command": "gitlens.key..",
@@ -1095,6 +1107,12 @@
     // - acceptSnippet
     // - addRootFolder
     // - breadcrumbs.toggle
+    // - clipboard-manager.editor.showClipboardInFile
+    // - clipboard-manager.history.clear
+    // - clipboard-manager.history.remove
+    // - clipboard-manager.historyTree.doubleClick
+    // - clipboard-manager.setClipboardValue
+    // - clipboardHistory.focus
     // - columnSelect
     // - compareFiles
     // - compareSelected
@@ -1136,6 +1154,7 @@
     // - editor.action.clipboardCopyWithSyntaxHighlightingAction
     // - editor.action.detectIndentation
     // - editor.action.findReferences
+    // - editor.action.fixAll
     // - editor.action.fontZoomIn
     // - editor.action.fontZoomOut
     // - editor.action.fontZoomReset
@@ -1172,6 +1191,7 @@
     // - editor.action.toggleRenderControlCharacter
     // - editor.action.toggleRenderWhitespace
     // - editor.action.transformToLowercase
+    // - editor.action.transformToTitlecase
     // - editor.action.transformToUppercase
     // - editor.action.transpose
     // - editor.action.wordHighlight.trigger
@@ -1217,13 +1237,22 @@
     // - extensions.builtInExtensionsList.focus
     // - extensions.builtInThemesExtensionsList.focus
     // - extensions.disabledExtensionList.focus
+    // - extensions.disabledExtensionList2.focus
     // - extensions.enabledExtensionList.focus
+    // - extensions.enabledExtensionList2.focus
     // - extensions.listView.focus
     // - extensions.otherrecommendedList.focus
     // - extensions.popularExtensionsList.focus
     // - extensions.recommendedList.focus
+    // - extensions.vscode-local.default.focus
+    // - extensions.vscode-local.installed.focus
+    // - extensions.vscode-local.outdated.focus
     // - extensions.workspaceRecommendedList.focus
     // - filesExplorer.findInWorkspace
+    // - flip.document
+    // - flip.selection
+    // - git-graph.clearAvatarCache
+    // - git-graph.view
     // - git._syncAll
     // - git.addRemote
     // - git.branch
@@ -1289,6 +1318,8 @@
     // - git.unstage
     // - git.unstageAll
     // - git.unstageSelectedRanges
+    // - gitCommits.focus
+    // - gitCommits.refresh
     // - gitlens.clearFileAnnotations
     // - gitlens.closeUnchangedFiles
     // - gitlens.computingFileAnnotations
@@ -1379,6 +1410,7 @@
     // - gitlens.views.contributor.addCoauthoredBy
     // - gitlens.views.contributor.copyToClipboard
     // - gitlens.views.dismissNode
+    // - gitlens.views.executeNodeCallback
     // - gitlens.views.expandNode
     // - gitlens.views.exploreRepoRevision
     // - gitlens.views.fetch
@@ -1465,7 +1497,6 @@
     // - gitlens.views.unstar
     // - javascript.goToProjectConfig
     // - javascript.reloadProjects
-    // - js.projectStatus.command
     // - keybindings.editor.copyCommandKeybindingEntry
     // - keybindings.editor.resetKeybinding
     // - keybindings.editor.showConflicts
@@ -1525,15 +1556,19 @@
     // - references-view.refresh
     // - references-view.remove
     // - references-view.tree.focus
+    // - remote.showActions
     // - removeRootFolder
     // - repl.action.copyAll
     // - replacePreviousChar
     // - revealInExplorer
     // - saveAll
     // - scm.mainPanel.focus
+    // - scm:repository:Git:file:///Users/benascher/code/binary-test-search.focus
+    // - scm:repository:Git:file:///Users/benascher/code/commander.js.focus
     // - scm:repository:Git:file:///Users/benascher/code/integrations.focus
     // - scm:repository:Git:file:///Users/benascher/code/napi.focus
     // - scm:repository:Git:file:///Users/benascher/code/public-website.focus
+    // - scm:repository:Git:file:///Users/benascher/code/sinon.focus
     // - scm:repository:Git:file:///Users/benascher/code/vs-code-default-keybindings.focus
     // - search.action.clearHistory
     // - search.action.clearSearchResults
@@ -1554,6 +1589,7 @@
     // - toggle.diff.ignoreTrimWhitespace
     // - toggle.diff.renderSideBySide
     // - toggleEscapeSequenceLogging
+    // - type
     // - typescript.goToProjectConfig
     // - typescript.openTsServerLog
     // - typescript.reloadProjects
@@ -1811,6 +1847,7 @@
     // - workbench.files.action.saveAllInGroup
     // - workbench.files.action.showActiveFileInExplorer
     // - workbench.output.action.clearOutput
+    // - workbench.view.extension.clipboard-manager
     // - workbench.view.extension.gitlens
     // - workbench.view.extension.references-view
     // - workbench.view.extension.test
