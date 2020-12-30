@@ -9,6 +9,6 @@ To use them, Open up "Keyboard Shortcuts (JSON)", paste the `negative` keybindin
 
 
 If the latest keybindings for your OS are missing, let me know, or open a PR!  
-Use Quick Open (ctrl+P on Windows and Linux, cmd+P on Mac) and type in Open Default Keyboard Shortcuts (JSON).
+Use Quick Open (ctrl+shift+P on Windows and Linux, cmd+shift+P on Mac) and type in Open Default Keyboard Shortcuts (JSON).
 Copy the contents of the file that is opened and paste them into your OS mapping file (e.g. windows.keybindings.json), replacing the contents. From there, you can simply open a PR, I usually run `sed` to add the negative keybindings.
 

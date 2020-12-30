@@ -103,7 +103,7 @@
 { "key": "shift+enter",           "command": "refactorPreview.apply",
                                      "when": "refactorPreview.enabled && refactorPreview.enabled && refactorPreview.hasCheckedChanges && focusedView == 'refactorPreview'" },
 { "key": "escape",                "command": "notebook.cell.quitEdit",
-                                     "when": "inputFocus && notebookEditorFocused && !editorHasSelection && !editorHoverVisible" },
+                                     "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
 { "key": "ctrl+f",                "command": "actions.find",
                                      "when": "editorFocus || editorIsOpen" },
 { "key": "enter",                 "command": "breakpointWidget.action.acceptInput",
@@ -169,11 +169,11 @@
 { "key": "ctrl+f",                "command": "editor.action.extensioneditor.showfind",
                                      "when": "!editorFocus && activeEditor == 'workbench.editor.extension'" },
 { "key": "ctrl+shift+i",          "command": "editor.action.formatDocument",
-                                     "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor" },
+                                     "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor" },
 { "key": "ctrl+shift+i",          "command": "editor.action.formatDocument.none",
-                                     "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorHasDocumentFormattingProvider && !editorReadonly" },
+                                     "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly" },
 { "key": "ctrl+k ctrl+f",         "command": "editor.action.formatSelection",
-                                     "when": "editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly" },
+                                     "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly" },
 { "key": "ctrl+f12",              "command": "editor.action.goToImplementation",
                                      "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor" },
 { "key": "shift+f12",             "command": "editor.action.goToReferences",
@@ -204,6 +204,8 @@
                                      "when": "editorTextFocus && !editorReadonly" },
 { "key": "ctrl+shift+\\",         "command": "editor.action.jumpToBracket",
                                      "when": "editorTextFocus" },
+{ "key": "ctrl+shift+f2",         "command": "editor.action.linkedEditing",
+                                     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly" },
 { "key": "alt+f8",                "command": "editor.action.marker.next",
                                      "when": "editorFocus" },
 { "key": "f8",                    "command": "editor.action.marker.nextInFiles",
@@ -224,8 +226,6 @@
                                      "when": "editorFocus && findInputFocussed" },
 { "key": "ctrl+f3",               "command": "editor.action.nextSelectionMatchFindAction",
                                      "when": "editorFocus" },
-{ "key": "ctrl+shift+f2",         "command": "editor.action.onTypeRename",
-                                     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly" },
 { "key": "shift+alt+o",           "command": "editor.action.organizeImports",
                                      "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/" },
 { "key": "ctrl+[",                "command": "editor.action.outdentLines",
@@ -294,6 +294,8 @@
                                      "when": "editorTextFocus && hasWordHighlights" },
 { "key": "escape",                "command": "editor.cancelOperation",
                                      "when": "cancellableOperation" },
+{ "key": "escape",                "command": "editor.debug.action.closeExceptionWidget",
+                                     "when": "exceptionWidgetVisible" },
 { "key": "ctrl+k ctrl+i",         "command": "editor.debug.action.showDebugHover",
                                      "when": "editorTextFocus && inDebugMode" },
 { "key": "f9",                    "command": "editor.debug.action.toggleBreakpoint",
@@ -365,7 +367,7 @@
 { "key": "escape",                "command": "search.action.focusQueryEditorWidget",
                                      "when": "inSearchEditor" },
 { "key": "ctrl+shift+backspace",  "command": "search.searchEditor.action.deleteFileResults",
-                                     "when": "inSearchEditor && inSearchEditor" },
+                                     "when": "inSearchEditor" },
 { "key": "escape",                "command": "settings.action.clearSearchResults",
                                      "when": "inSettingsEditor && inSettingsSearch" },
 { "key": "ctrl+.",                "command": "settings.action.editFocusedSetting",
@@ -432,6 +434,8 @@
                                      "when": "editorFocus && markersNavigationVisible" },
 { "key": "escape",                "command": "closeMarkersNavigation",
                                      "when": "editorFocus && markersNavigationVisible" },
+{ "key": "escape",                "command": "notifications.hideToasts",
+                                     "when": "notificationToastsVisible" },
 { "key": "shift+escape",          "command": "closeParameterHints",
                                      "when": "editorFocus && parameterHintsVisible" },
 { "key": "escape",                "command": "closeParameterHints",
@@ -486,10 +490,10 @@
                                      "when": "editorFocus && renameInputVisible" },
 { "key": "shift+enter",           "command": "acceptRenameInputWithPreview",
                                      "when": "config.editor.rename.enablePreview && editorFocus && renameInputVisible" },
-{ "key": "shift+escape",          "command": "cancelOnTypeRenameInput",
-                                     "when": "editorTextFocus && onTypeRenameInputVisible" },
-{ "key": "escape",                "command": "cancelOnTypeRenameInput",
-                                     "when": "editorTextFocus && onTypeRenameInputVisible" },
+{ "key": "shift+escape",          "command": "cancelLinkedEditingInput",
+                                     "when": "LinkedEditingInputVisible && editorTextFocus" },
+{ "key": "escape",                "command": "cancelLinkedEditingInput",
+                                     "when": "LinkedEditingInputVisible && editorTextFocus" },
 { "key": "shift+escape",          "command": "cancelRenameInput",
                                      "when": "editorFocus && renameInputVisible" },
 { "key": "escape",                "command": "cancelRenameInput",
@@ -568,6 +572,8 @@
                                      "when": "historyNavigationEnabled && historyNavigationWidget" },
 { "key": "alt+=",                 "command": "increaseSearchEditorContextLines",
                                      "when": "inSearchEditor" },
+{ "key": "ctrl+k ctrl+a",         "command": "keybindings.editor.addKeybinding",
+                                     "when": "inKeybindings && keybindingFocus" },
 { "key": "escape",                "command": "keybindings.editor.clearSearchResults",
                                      "when": "inKeybindings && inKeybindingsSearch" },
 { "key": "ctrl+c",                "command": "keybindings.editor.copyKeybindingEntry",
@@ -576,7 +582,7 @@
                                      "when": "inKeybindings && keybindingFocus" },
 { "key": "ctrl+k ctrl+e",         "command": "keybindings.editor.defineWhenExpression",
                                      "when": "inKeybindings && keybindingFocus" },
-{ "key": "down",                  "command": "keybindings.editor.focusKeybindings",
+{ "key": "ctrl+down",             "command": "keybindings.editor.focusKeybindings",
                                      "when": "inKeybindings && inKeybindingsSearch" },
 { "key": "alt+k",                 "command": "keybindings.editor.recordSearchKeys",
                                      "when": "inKeybindings && inKeybindingsSearch" },
@@ -661,7 +667,7 @@
 { "key": "alt+up",                "command": "notebook.cell.moveUp",
                                      "when": "notebookEditorFocused && !inputFocus" },
 { "key": "ctrl+k ctrl+shift+\\",  "command": "notebook.cell.split",
-                                     "when": "notebookCellEditable && notebookCellEditorFocused && notebookEditable && notebookEditorFocused" },
+                                     "when": "notebookCellEditable && notebookCellEditorFocused && notebookEditable && notebookEditorFocused && !notebookEditorCursorAtEditorBeginEnd" },
 { "key": "ctrl+l",                "command": "notebook.centerActiveCell",
                                      "when": "notebookEditorFocused" },
 { "key": "ctrl+f",                "command": "notebook.find",
@@ -1074,7 +1080,7 @@
 { "key": "escape",                "command": "editor.closeCallHierarchy",
                                      "when": "callHierarchyVisible && !config.editor.stablePeek" },
 { "key": "enter",                 "command": "explorer.openAndPassFocus",
-                                     "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus" },
+                                     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus" },
 { "key": "escape",                "command": "filesExplorer.cancelCut",
                                      "when": "explorerResourceCut && explorerViewletVisible && filesExplorerFocus && !inputFocus" },
 { "key": "ctrl+c",                "command": "filesExplorer.copy",
@@ -1111,8 +1117,6 @@
                                      "when": "referenceSearchVisible && !config.editor.stablePeek" },
 { "key": "escape",                "command": "notifications.hideList",
                                      "when": "notificationCenterVisible" },
-{ "key": "escape",                "command": "notifications.hideToasts",
-                                     "when": "notificationToastsVisible" },
 { "key": "ctrl+alt+-",            "command": "workbench.action.quickInputBack",
                                      "when": "inQuickOpen" },
 { "key": "ctrl+tab",              "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
@@ -1135,6 +1139,8 @@
                                      "when": "isDevelopment" },
 { "key": "ctrl+shift+i",          "command": "workbench.action.toggleDevTools",
                                      "when": "isDevelopment" },
+{ "key": "escape",                "command": "notifications.hideToasts",
+                                     "when": "notificationFocus && notificationToastsVisible" },
 { "key": "f10",                   "command": "extension.node-debug.startWithStopOnEntry",
                                      "when": "!inDebugMode && debugConfigurationType == 'node'" },
 { "key": "ctrl+k ctrl+alt+s",     "command": "git.stageSelectedRanges",
@@ -1155,20 +1161,35 @@
                                      "when": "reference-list.hasResult && references-view.canNavigate" },
 { "key": "shift+alt+h",           "command": "references-view.showCallHierarchy",
                                      "when": "editorHasCallHierarchyProvider" },
+{ "key": "ctrl+alt+k",            "command": "bookmarks.toggle",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+shift+l",          "command": "extension.insertLogStatement",
+                                     "when": "editorTextFocus" },
 { "key": "enter",                 "command": "extension.vs_scite_like.onEnterKey",
                                      "when": "editorTextFocus && !editorReadonly && !suggestWidgetVisible" },
 { "key": "shift+enter",           "command": "jupyter.execSelectionInteractive",
                                      "when": "editorTextFocus && jupyter.ownsSelection && !findInputFocussed && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'" },
 { "key": "shift+enter",           "command": "python.execSelectionInTerminal",
-                                     "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !replaceInputFocussed && editorLangId == 'python'" },
+                                     "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'" },
+{ "key": "ctrl+alt+l",            "command": "bookmarks.jumpToNext",
+                                     "when": "editorTextFocus" },
+{ "key": "ctrl+shift+d",          "command": "extension.deleteAllLogStatements" },
 { "key": "shift+enter",           "command": "jupyter.runcurrentcelladvance",
                                      "when": "editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused" },
+{ "key": "ctrl+alt+j",            "command": "bookmarks.jumpToPrevious",
+                                     "when": "editorTextFocus" },
 { "key": "ctrl+enter",            "command": "jupyter.runcurrentcell",
                                      "when": "editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused" },
+{ "key": "shift+alt+k",           "command": "bookmarks.shrinkSelection",
+                                     "when": "editorTextFocus" },
 { "key": "alt+enter",             "command": "jupyter.runcurrentcellandaddbelow",
                                      "when": "editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused" },
+{ "key": "shift+alt+l",           "command": "bookmarks.expandSelectionToNext",
+                                     "when": "editorTextFocus" },
 { "key": "f",                     "command": "notebook.find",
                                      "when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'" },
+{ "key": "shift+alt+j",           "command": "bookmarks.expandSelectionToPrevious",
+                                     "when": "editorTextFocus" },
 { "key": "k",                     "command": "list.focusUp",
                                      "when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'" },
 { "key": "j",                     "command": "list.focusDown",
@@ -1225,6 +1246,21 @@
 // - acceptSnippet
 // - actions.findWithSelection
 // - addRootFolder
+// - bookmarks.clear
+// - bookmarks.clearFromAllFiles
+// - bookmarks.list
+// - bookmarks.listFromAllFiles
+// - bookmarks.openSettings
+// - bookmarks.refresh
+// - bookmarks.selectLines
+// - bookmarks.supportBookmarks
+// - bookmarks.toggleLabeled
+// - bookmarks.whatsNew
+// - bookmarksExplorer.focus
+// - bookmarksExplorer.resetViewLocation
+// - bookmarksHelpAndFeedback.focus
+// - bookmarksHelpAndFeedback.openHelpLink
+// - bookmarksHelpAndFeedback.resetViewLocation
 // - breadcrumbs.toggle
 // - changeEditorIndentation
 // - cleanSearchEditorState
@@ -1280,6 +1316,7 @@
 // - default:undo
 // - deleteAllLeft
 // - deleteAllRight
+// - deleteInsideWord
 // - deleteWordEndLeft
 // - deleteWordEndRight
 // - deleteWordPartLeft
@@ -1376,10 +1413,19 @@
 // - editor.emmet.action.wrapIndividualLinesWithAbbreviation
 // - editor.emmet.action.wrapWithAbbreviation
 // - emmet.expandAbbreviation
+// - eslint.createConfig
+// - eslint.executeAutofix
+// - eslint.manageLibraryExecution
+// - eslint.migrateSettings
+// - eslint.resetLibraryExecution
+// - eslint.showOutputChannel
 // - explorer.download
 // - explorer.newFile
 // - explorer.newFolder
 // - explorer.openWith
+// - extension.bisect.next
+// - extension.bisect.start
+// - extension.bisect.stop
 // - extension.js-debug.autoAttachToProcess
 // - extension.js-debug.clearAutoAttachVariables
 // - extension.js-debug.createDiagnostics
@@ -1412,6 +1458,7 @@
 // - extensions.recommendedList.resetViewLocation
 // - files.openTimeline
 // - filesExplorer.findInWorkspace
+// - git._syncAll
 // - git.addRemote
 // - git.api.getRemoteSources
 // - git.api.getRepositories
@@ -1419,6 +1466,8 @@
 // - git.branch
 // - git.branchFrom
 // - git.checkout
+// - git.checkoutDetached
+// - git.cherryPick
 // - git.clean
 // - git.cleanAll
 // - git.cleanAllTracked
@@ -1456,12 +1505,14 @@
 // - git.openFile2
 // - git.openHEADFile
 // - git.openRepository
+// - git.openResource
 // - git.publish
 // - git.pull
 // - git.pullFrom
 // - git.pullRebase
 // - git.push
 // - git.pushForce
+// - git.pushTags
 // - git.pushTo
 // - git.pushToForce
 // - git.pushWithTags
@@ -1470,6 +1521,7 @@
 // - git.rebaseAbort
 // - git.refresh
 // - git.removeRemote
+// - git.rename
 // - git.renameBranch
 // - git.restoreCommitTemplate
 // - git.revealInExplorer
@@ -1537,6 +1589,7 @@
 // - jupyter.notebookeditor.addcellbelow
 // - jupyter.notebookeditor.collapseallcells
 // - jupyter.notebookeditor.expandallcells
+// - jupyter.notebookeditor.export
 // - jupyter.notebookeditor.interruptkernel
 // - jupyter.notebookeditor.redocells
 // - jupyter.notebookeditor.removeallcells
@@ -1574,6 +1627,8 @@
 // - jupyter.switchToWeeklyChannel
 // - jupyter.undocells
 // - jupyter.viewOutput
+// - jupyterViewVariables.focus
+// - jupyterViewVariables.resetViewLocation
 // - keybindings.editor.copyCommandKeybindingEntry
 // - keybindings.editor.resetKeybinding
 // - keybindings.editor.showConflicts
@@ -1625,6 +1680,7 @@
 // - notebook.inspectLayout
 // - notebook.renderAllMarkdownCells
 // - notebook.selectKernel
+// - notebook.trust
 // - notifications.clearAll
 // - notifications.focusToasts
 // - notifications.showList
@@ -1674,6 +1730,7 @@
 // - python.execSelectionInDjangoShell
 // - python.goToPythonObject
 // - python.interpreterPath
+// - python.launchTensorBoard
 // - python.openTestNodeInEditor
 // - python.pickLocalProcess
 // - python.refactorExtractMethod
@@ -1736,10 +1793,11 @@
 // - remote.tunnel.forwardCommandPalette
 // - remote.tunnel.forwardInline
 // - remote.tunnel.open
-// - remote.tunnel.refresh
+// - remote.tunnel.openCommandPalette
 // - removeRootFolder
 // - repl.action.copyAll
 // - replacePreviousChar
+// - resetGettingStartedProgress
 // - revealInExplorer
 // - saveAll
 // - scm.openInTerminal
@@ -1802,6 +1860,9 @@
 // - workbench.action.closeOtherEditors
 // - workbench.action.closePanel
 // - workbench.action.closeSidebar
+// - workbench.action.compareEditor.focusOtherSide
+// - workbench.action.compareEditor.focusPrimarySide
+// - workbench.action.compareEditor.focusSecondarySide
 // - workbench.action.configureLanguageBasedSettings
 // - workbench.action.configureLocale
 // - workbench.action.configureRuntimeArguments
@@ -1827,7 +1888,7 @@
 // - workbench.action.editorLayoutTwoRows
 // - workbench.action.editorLayoutTwoRowsRight
 // - workbench.action.evenEditorWidths
-// - workbench.action.extensionHostProfilder.stop
+// - workbench.action.extensionHostProfiler.stop
 // - workbench.action.files.openFileFolderInNewWindow
 // - workbench.action.files.openFileInNewWindow
 // - workbench.action.files.openFolderInNewWindow
@@ -1854,6 +1915,7 @@
 // - workbench.action.inspectContextKeys
 // - workbench.action.inspectKeyMappings
 // - workbench.action.inspectKeyMappingsJSON
+// - workbench.action.installCommandLine
 // - workbench.action.joinAllGroups
 // - workbench.action.joinTwoGroups
 // - workbench.action.logStorage
@@ -1956,11 +2018,13 @@
 // - workbench.action.showEditorsInGroup
 // - workbench.action.showEmmetCommands
 // - workbench.action.showErrorsWarnings
+// - workbench.action.showGettingStarted
 // - workbench.action.showInteractivePlayground
 // - workbench.action.showInterfaceOverview
 // - workbench.action.showLogs
 // - workbench.action.showRuntimeExtensions
 // - workbench.action.showWelcomePage
+// - workbench.action.showWindowLog
 // - workbench.action.splitEditorDown
 // - workbench.action.splitEditorLeft
 // - workbench.action.splitEditorRight
@@ -2019,6 +2083,7 @@
 // - workbench.action.toggleEditorType
 // - workbench.action.toggleEditorVisibility
 // - workbench.action.toggleEditorWidths
+// - workbench.action.toggleKeepEditors
 // - workbench.action.toggleKeybindingsLog
 // - workbench.action.toggleMaximizedPanel
 // - workbench.action.toggleMenuBar
@@ -2028,6 +2093,7 @@
 // - workbench.action.toggleSharedProcess
 // - workbench.action.toggleSidebarPosition
 // - workbench.action.toggleStatusbarVisibility
+// - workbench.action.uninstallCommandLine
 // - workbench.action.url.openUrl
 // - workbench.action.webview.openDeveloperTools
 // - workbench.action.webview.reloadWebviewAction
@@ -2036,6 +2102,10 @@
 // - workbench.actions.sync.replaceCurrent
 // - workbench.actions.sync.resolveResource
 // - workbench.actions.sync.turnOffSyncOnMachine
+// - workbench.actions.treeView.bookmarksExplorer.collapseAll
+// - workbench.actions.treeView.bookmarksExplorer.refresh
+// - workbench.actions.treeView.bookmarksHelpAndFeedback.collapseAll
+// - workbench.actions.treeView.bookmarksHelpAndFeedback.refresh
 // - workbench.actions.treeView.jsBrowserBreakpoints.collapseAll
 // - workbench.actions.treeView.jsBrowserBreakpoints.refresh
 // - workbench.actions.treeView.npm.collapseAll
@@ -2044,6 +2114,8 @@
 // - workbench.actions.treeView.python_tests.refresh
 // - workbench.actions.treeView.references-view.tree.collapseAll
 // - workbench.actions.treeView.references-view.tree.refresh
+// - workbench.actions.treeView.workbench.panel.markers.view.collapseAll
+// - workbench.actions.treeView.workbench.panel.markers.view.filter
 // - workbench.actions.treeView.workbench.views.sync.localActivity.collapseAll
 // - workbench.actions.treeView.workbench.views.sync.localActivity.refresh
 // - workbench.actions.treeView.workbench.views.sync.machines.collapseAll
@@ -2075,6 +2147,7 @@
 // - workbench.explorer.fileView.focus
 // - workbench.explorer.fileView.resetViewLocation
 // - workbench.explorer.openEditorsView.resetViewLocation
+// - workbench.extensions.action.addExtensionToWorkspaceRecommendations
 // - workbench.extensions.action.addToWorkspaceFolderIgnoredRecommendations
 // - workbench.extensions.action.addToWorkspaceFolderRecommendations
 // - workbench.extensions.action.addToWorkspaceIgnoredRecommendations
@@ -2094,6 +2167,7 @@
 // - workbench.extensions.action.enableAllWorkspace
 // - workbench.extensions.action.enableAutoUpdate
 // - workbench.extensions.action.extensionHostProfile
+// - workbench.extensions.action.ignoreRecommendation
 // - workbench.extensions.action.install.specificVersion
 // - workbench.extensions.action.installExtensions
 // - workbench.extensions.action.installVSIX
@@ -2101,7 +2175,9 @@
 // - workbench.extensions.action.listOutdatedExtensions
 // - workbench.extensions.action.manageAuthorizedExtensionURIs
 // - workbench.extensions.action.openExtensionsFolder
+// - workbench.extensions.action.refreshExtension
 // - workbench.extensions.action.reinstall
+// - workbench.extensions.action.removeExtensionFromWorkspaceRecommendations
 // - workbench.extensions.action.saveExtensionHostProfile
 // - workbench.extensions.action.showAzureExtensions
 // - workbench.extensions.action.showDisabledExtensions
@@ -2114,6 +2190,7 @@
 // - workbench.extensions.action.showRecommendedExtensions
 // - workbench.extensions.action.stopExtensionHostProfile
 // - workbench.extensions.action.toggleIgnoreExtension
+// - workbench.extensions.action.undoIgnoredRecommendation
 // - workbench.extensions.action.updateAllExtensions
 // - workbench.extensions.command.installFromVSIX
 // - workbench.extensions.installMissingDependencies
@@ -2158,6 +2235,10 @@
 // - workbench.userDataSync.actions.turnOn
 // - workbench.view.debug.resetViewContainerLocation
 // - workbench.view.explorer.resetViewContainerLocation
+// - workbench.view.extension.bookmarks
+// - workbench.view.extension.bookmarks.resetViewContainerLocation
+// - workbench.view.extension.jupyter
+// - workbench.view.extension.jupyter.resetViewContainerLocation
 // - workbench.view.extension.references-view
 // - workbench.view.extension.references-view.resetViewContainerLocation
 // - workbench.view.extension.test
@@ -2180,6 +2261,8 @@
 // - workbench.views.extensions.disabled.resetViewLocation
 // - workbench.views.extensions.enabled.focus
 // - workbench.views.extensions.enabled.resetViewLocation
+// - workbench.views.extensions.installed.empty.focus
+// - workbench.views.extensions.installed.empty.resetViewLocation
 // - workbench.views.extensions.installed.focus
 // - workbench.views.extensions.installed.resetViewLocation
 // - workbench.views.extensions.marketplace.focus
