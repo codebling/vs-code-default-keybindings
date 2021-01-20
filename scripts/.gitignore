@@ -1,0 +1,5 @@
+
+# input files don't need to be checked into the repo
+linux.keybindings.raw.json
+windows.keybindings.raw.json
+macos.keybindings.raw.json
