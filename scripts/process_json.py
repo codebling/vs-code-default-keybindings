@@ -63,6 +63,9 @@ def finishingTouches(filename, osname):
     
     # remove unnecessary line
     b = b.replace(b'// Override key bindings by placing them into your key bindings file.', b'')
+    
+    # remove list of available commands
+    b = b.split(b'// Here are other available commands:')[0]
 
     with open(filename, 'wb') as fOut:
         fOut.write(b)
@@ -94,16 +97,16 @@ def processRawFile(inputFile):
         finishingTouches(outputFile, osname)
         finishingTouches(outputNegFile, osname)
 
-	# optional manual steps:
-	# remove initial comment
-	# for negatives, remove suggested commands at the end
+    print('Wrote to ' + outputFile)
+    print('Wrote to ' + outputNegFile)
 
 if __name__ == '__main__':
-    print('Please uncomment a line here and run the script.')
-    # print('Processing json')
-    # processRawFile('linux.keybindings.raw.json')
-    # processRawFile('windows.keybindings.raw.json')
-    # processRawFile('macos.keybindings.raw.json')
-    # print('Done')
-
+    print('Processing json')
+    if os.path.exists('linux.keybindings.raw.json'):
+        processRawFile('linux.keybindings.raw.json')
+    if os.path.exists('windows.keybindings.raw.json'):
+        processRawFile('windows.keybindings.raw.json')
+    if os.path.exists('macos.keybindings.raw.json'):
+        processRawFile('macos.keybindings.raw.json')
+    print('Done')
 
