@@ -60,6 +60,11 @@ def finishingTouches(filename, osname):
     if osname == 'windows':
         b = b.replace(b'\r\n', b'\r\n  ')
         b = b.replace(b'\r\n  [\r\n', b'\r\n[\r\n')
+
+    # for linux, indent everything but the opening [ by 2 spaces
+    if osname == 'linux' :
+        b = b.replace(b'\n', b'\n  ')
+        b = b.replace(b'\n  [\n', b'\n[\n')
     
     # remove unnecessary line
     b = b.replace(b'// Override key bindings by placing them into your key bindings file.', b'')
