@@ -3,9 +3,12 @@
 name: Update Default Keybindings
 
 on:
-  # schedule:
-  #   - cron: '22 11 * * 5' # weekly
-  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/*'
+      - 'scripts/**'
 
 jobs:
   get-default-keybindings:
