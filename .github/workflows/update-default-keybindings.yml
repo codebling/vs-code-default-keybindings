@@ -53,9 +53,9 @@ jobs:
       - name: Copy JSON files
         shell: bash
         run: |
-          cp raw-default-keybindings-ubuntu-latest/scripts/linux.keybindings.raw.json scripts/
-          cp raw-default-keybindings-macos-latest/scripts/macos.keybindings.raw.json scripts/
-          cp raw-default-keybindings-windows-latest/scripts/windows.keybindings.raw.json scripts/
+          cp raw-default-keybindings-ubuntu-latest/linux.keybindings.raw.json scripts/
+          cp raw-default-keybindings-macos-latest/macos.keybindings.raw.json scripts/
+          cp raw-default-keybindings-windows-latest/windows.keybindings.raw.json scripts/
       - name: Update keybindings files
         run: python3 process_json.py
         working-directory: ./scripts
