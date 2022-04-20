@@ -8,7 +8,7 @@
 	"scripts": {
 		"start": "node ./main.js"
 	},
-	"devDependencies": {
-		"vscode-test": "^1.6.1"
+	"dependencies": {
+		"@vscode/test-electron": "^2.1.3"
 	}
 }
