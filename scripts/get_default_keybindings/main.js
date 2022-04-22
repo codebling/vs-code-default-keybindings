@@ -1,6 +1,5 @@
 'use strict';
 const path = require('path');
-const fsPromises = require('fs/promises');
 const { runTests } = require('@vscode/test-electron');
 
 async function main() {
@@ -8,8 +7,6 @@ async function main() {
         // Make two empty directories to use to launch VS Code with the cleanest possible profile.
         const emptyDir1 = path.resolve(__dirname, 'empty1');
         const emptyDir2 = path.resolve(__dirname, 'empty2');
-        await fsPromises.mkdir(emptyDir1, { recursive: true });
-        await fsPromises.mkdir(emptyDir2, { recursive: true });
 
         // Path to the script that retrieves and saves the default keybindings JSON to a file.
         const scriptPath = path.resolve(__dirname, 'main_impl.js');
