@@ -3,6 +3,9 @@
 name: Update Default Keybindings
 
 on:
+  schedule:
+    - cron: '0 */12 * * *' # Every 12 hours
+  workflow_dispatch:
   pull_request:
     branches:
       - master
