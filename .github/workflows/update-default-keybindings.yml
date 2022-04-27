@@ -89,7 +89,7 @@ jobs:
           prlist=$(gh pr list --json number,author,title)
           echo "prlist: ${prlist}"
           echo "title: ${title}"
-          match=$(echo ${prlist} | jq "map(select(.author.login==\"github-actions\") | select(.title==\"${title}\"))[0]"")
+          match=$(echo ${prlist} | jq "map(select(.author.login==\"github-actions\") | select(.title==\"${title}\"))[0]")
           echo "match: ${match}"
           if [ "${match}" = "null" ]; then
             echo "no PR for the same version found"
