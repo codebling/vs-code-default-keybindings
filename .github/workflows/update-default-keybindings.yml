@@ -93,7 +93,7 @@ jobs:
           echo "match: ${match}"
           if [ "${match}" = "null" ]; then
             echo "no PR for the same version found"
-            echo "::set-output name=exists::should-be-false"
+            echo "::set-output name=exists::false"
           else
             echo "a PR for the same version found"
             echo "::set-output name=exists::true"
