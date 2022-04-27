@@ -87,10 +87,11 @@ jobs:
           version=${{ steps.ver.outputs.linux }}
           title="Update for VSCode ${version}"
           match=$(gh pr list --json author,title | jq 'map(select(.author.login=="github-actions") | select(.title=="${title}"))[0]')
-          if [ "${match}" = "null" ]
-          then
+          if [ "${match}" = "null" ]; then
+            echo "no PR for the same version found"
             echo "::set-output name=exists::false"
           else
+            echo "a PR for the same version found"
             echo "::set-output name=exists::true"
           fi
         env:
