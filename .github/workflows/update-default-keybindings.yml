@@ -80,6 +80,28 @@ jobs:
           echo "::set-output name=linux::${ver_linux}"
           echo "::set-output name=macos::${ver_macos}"
           echo "::set-output name=windows::${ver_windows}"
+      - name: Check for existing PR for the same version
+        id: pr
+        shell: bash
+        run: |
+          version=${{ steps.ver.outputs.linux }}
+          title="Update for VSCode ${version}"
+          openprs=$(gh pr list --json number,author,title --search 'is:open')
+          closedprs=$(gh pr list --json number,author,title --search 'is:closed')
+          prlist=$(jq --argjson openprs "$openprs" --argjson closedprs "$closedprs" -n '$openprs + $closedprs | unique_by(.number)')
+          echo "prlist: ${prlist}"
+          echo "title: ${title}"
+          match=$(echo ${prlist} | jq "map(select(.author.login==\"github-actions\") | select(.title==\"${title}\"))[0]")
+          echo "match: ${match}"
+          if [ "${match}" = "null" ]; then
+            echo "no PR for the same version found"
+            echo "::set-output name=exists::false"
+          else
+            echo "a PR for the same version found"
+            echo "::set-output name=exists::true"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Make a unique branch name
         id: branch-name
         shell: bash
@@ -87,7 +109,7 @@ jobs:
           datetime=$(date +'%Y-%m-%d-%H-%M')
           echo "::set-output name=branch-name::update-default-keybindings-${datetime}"
       - name: Make a commit and push a branch
-        if: steps.diff.outputs.has-diff == 'true'
+        if: steps.diff.outputs.has-diff == 'true' && steps.pr.outputs.exists == 'false'
         shell: bash
         run: |
           echo "Has diff!"
@@ -101,7 +123,7 @@ jobs:
           git push origin ${{ steps.branch-name.outputs.branch-name }}
           echo "Pushed a branch successfully"
       - name: Make a PR
-        if: steps.diff.outputs.has-diff == 'true'
+        if: steps.diff.outputs.has-diff == 'true' && steps.pr.outputs.exists == 'false'
         shell: bash
         run: |
           head=${{ steps.branch-name.outputs.branch-name }}
