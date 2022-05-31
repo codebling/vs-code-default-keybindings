@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Download three JSON files
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
       - name: Copy JSON files
         shell: bash
         run: |
