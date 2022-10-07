@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.71.2 for macOS
+// Default Keybindings of Visual Studio Code 1.72.0 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -811,7 +811,7 @@
     { "key": "shift+alt+up",          "command": "notebook.cell.copyUp",
                                          "when": "notebookEditorFocused && !inputFocus" },
     { "key": "cmd+backspace",         "command": "notebook.cell.delete",
-                                         "when": "notebookEditable && notebookEditorFocused && !inputFocus" },
+                                         "when": "notebookEditorFocused && !inputFocus" },
     { "key": "shift+alt+d",           "command": "notebook.cell.detectLanguage",
                                          "when": "notebookCellEditable && notebookEditable" },
     { "key": "enter",                 "command": "notebook.cell.edit",
@@ -1229,6 +1229,8 @@
                                          "when": "!terminalFocus" },
     { "key": "cmd+v",                 "command": "workbench.action.terminal.paste",
                                          "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported" },
+    { "key": "cmd+.",                 "command": "workbench.action.terminal.quickFix",
+                                         "when": "terminalFocus && terminalProcessSupported" },
     { "key": "enter",                 "command": "workbench.action.terminal.renameInstance",
                                          "when": "terminalHasBeenCreated && terminalTabsFocus && terminalTabsSingularSelection || terminalProcessSupported && terminalTabsFocus && terminalTabsSingularSelection" },
     { "key": "ctrl+cmd+down",         "command": "workbench.action.terminal.resizePaneDown",
@@ -1291,9 +1293,6 @@
     { "key": "cmd+right",             "command": "workbench.action.terminal.sendSequence",
                                          "when": "terminalFocus",
                                          "args": {"text":"\u0005"} },
-    { "key": "cmd+.",                 "command": "workbench.action.terminal.sendSequence",
-                                         "when": "terminalFocus",
-                                         "args": {"text":"\u0003"} },
     { "key": "ctrl+shift+2",          "command": "workbench.action.terminal.sendSequence",
                                          "when": "terminalFocus",
                                          "args": {"text":"\u0000"} },
@@ -1516,9 +1515,13 @@
                                          "when": "codeActionMenuVisible" },
     { "key": "cmd+enter",             "command": "previewSelectedCodeAction",
                                          "when": "codeActionMenuVisible" },
+    { "key": "ctrl+n",                "command": "selectNextCodeAction",
+                                         "when": "codeActionMenuVisible" },
     { "key": "cmd+down",              "command": "selectNextCodeAction",
                                          "when": "codeActionMenuVisible" },
     { "key": "down",                  "command": "selectNextCodeAction",
+                                         "when": "codeActionMenuVisible" },
+    { "key": "ctrl+p",                "command": "selectPrevCodeAction",
                                          "when": "codeActionMenuVisible" },
     { "key": "cmd+up",                "command": "selectPrevCodeAction",
                                          "when": "codeActionMenuVisible" },
