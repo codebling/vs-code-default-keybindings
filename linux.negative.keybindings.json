@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.71.2 for Linux
+// Default Keybindings of Visual Studio Code 1.72.0 for Linux
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -724,7 +724,7 @@
   { "key": "shift+alt+up",          "command": "-notebook.cell.copyUp",
                                        "when": "notebookEditorFocused && !inputFocus" },
   { "key": "delete",                "command": "-notebook.cell.delete",
-                                       "when": "notebookEditable && notebookEditorFocused && !inputFocus" },
+                                       "when": "notebookEditorFocused && !inputFocus" },
   { "key": "shift+alt+d",           "command": "-notebook.cell.detectLanguage",
                                        "when": "notebookCellEditable && notebookEditable" },
   { "key": "enter",                 "command": "-notebook.cell.edit",
@@ -1130,6 +1130,8 @@
                                        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported" },
   { "key": "shift+insert",          "command": "-workbench.action.terminal.pasteSelection",
                                        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported" },
+  { "key": "ctrl+.",                "command": "-workbench.action.terminal.quickFix",
+                                       "when": "terminalFocus && terminalProcessSupported" },
   { "key": "f2",                    "command": "-workbench.action.terminal.renameInstance",
                                        "when": "terminalHasBeenCreated && terminalTabsFocus && terminalTabsSingularSelection || terminalProcessSupported && terminalTabsFocus && terminalTabsSingularSelection" },
   { "key": "ctrl+shift+left",       "command": "-workbench.action.terminal.resizePaneLeft",
