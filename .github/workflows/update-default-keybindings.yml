@@ -66,7 +66,11 @@ jobs:
         id: diff
         shell: bash
         run: |
-          git diff --exit-code && echo "::set-output name=has-diff::false" || echo "::set-output name=has-diff::true"
+          if git diff --exit-code; then
+            echo "has-diff=false" >> $GITHUB_OUTPUT
+          else
+            echo "has-diff=true" >> $GITHUB_OUTPUT
+          fi
       - name: Extract version numbers
         id: ver
         shell: bash
@@ -77,9 +81,9 @@ jobs:
           echo "ver_linux: ${ver_linux}"
           echo "ver_macos: ${ver_macos}"
           echo "ver_windows: ${ver_windows}"
-          echo "::set-output name=linux::${ver_linux}"
-          echo "::set-output name=macos::${ver_macos}"
-          echo "::set-output name=windows::${ver_windows}"
+          echo "linux=${ver_linux}" >> $GITHUB_OUTPUT
+          echo "macos=${ver_macos}" >> $GITHUB_OUTPUT
+          echo "windows=${ver_windows}" >> $GITHUB_OUTPUT
       - name: Check for existing PR for the same version
         id: pr
         shell: bash
@@ -95,10 +99,10 @@ jobs:
           echo "match: ${match}"
           if [ "${match}" = "null" ]; then
             echo "no PR for the same version found"
-            echo "::set-output name=exists::false"
+            echo "exists=false" >> $GITHUB_OUTPUT
           else
             echo "a PR for the same version found"
-            echo "::set-output name=exists::true"
+            echo "exists=true" >> $GITHUB_OUTPUT
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -107,7 +111,7 @@ jobs:
         shell: bash
         run: |
           datetime=$(date +'%Y-%m-%d-%H-%M')
-          echo "::set-output name=branch-name::update-default-keybindings-${datetime}"
+          echo "branch-name=update-default-keybindings-${datetime}" >> $GITHUB_OUTPUT
       - name: Make a commit and push a branch
         if: steps.diff.outputs.has-diff == 'true' && steps.pr.outputs.exists == 'false'
         shell: bash
