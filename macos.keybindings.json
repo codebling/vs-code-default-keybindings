@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.72.2 for macOS
+// Default Keybindings of Visual Studio Code 1.73.0 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -570,10 +570,6 @@
                                          "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus" },
     { "key": "enter",                 "command": "acceptSelectedSuggestion",
                                          "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus" },
-    { "key": "shift+escape",          "command": "hideCodeActionWidget",
-                                         "when": "codeActionMenuVisible" },
-    { "key": "escape",                "command": "hideCodeActionWidget",
-                                         "when": "codeActionMenuVisible" },
     { "key": "shift+escape",          "command": "hideSuggestWidget",
                                          "when": "suggestWidgetVisible && textInputFocus" },
     { "key": "escape",                "command": "hideSuggestWidget",
@@ -841,7 +837,7 @@
     { "key": "ctrl+l",                "command": "notebook.centerActiveCell",
                                          "when": "notebookEditorFocused" },
     { "key": "cmd+f",                 "command": "notebook.find",
-                                         "when": "notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.notebook'" },
+                                         "when": "notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.interactive' || notebookEditorFocused && !editorFocus && activeEditor == 'workbench.editor.notebook'" },
     { "key": "cmd+down",              "command": "notebook.focusBottom",
                                          "when": "notebookEditorFocused && !inputFocus" },
     { "key": "down",                  "command": "notebook.focusNextEditor",
@@ -959,6 +955,8 @@
                                          "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible" },
     { "key": "cmd+up",                "command": "search.focus.previousInputBox",
                                          "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus" },
+    { "key": "shift+alt+f",           "command": "search.restrictSearchToFolder",
+                                         "when": "folderMatchWithResourceFocus && searchViewletVisible" },
     { "key": "shift+cmd+l",           "command": "selectAllSearchEditorMatches",
                                          "when": "inSearchEditor" },
     { "key": "escape",                "command": "settings.action.focusLevelUp",
@@ -1512,6 +1510,10 @@
     { "key": "cmd+.",                 "command": "acceptSelectedCodeAction",
                                          "when": "codeActionMenuVisible" },
     { "key": "enter",                 "command": "acceptSelectedCodeAction",
+                                         "when": "codeActionMenuVisible" },
+    { "key": "shift+escape",          "command": "hideCodeActionWidget",
+                                         "when": "codeActionMenuVisible" },
+    { "key": "escape",                "command": "hideCodeActionWidget",
                                          "when": "codeActionMenuVisible" },
     { "key": "cmd+enter",             "command": "previewSelectedCodeAction",
                                          "when": "codeActionMenuVisible" },
