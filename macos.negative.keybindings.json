@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.74.0 for macOS
+// Default Keybindings of Visual Studio Code 1.74.2 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1512,27 +1512,27 @@
     { "key": "shift+alt+h",           "command": "-references-view.showCallHierarchy",
                                          "when": "editorHasCallHierarchyProvider" },
     { "key": "cmd+.",                 "command": "-acceptSelectedCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "enter",                 "command": "-acceptSelectedCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "shift+escape",          "command": "-hideCodeActionWidget",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "escape",                "command": "-hideCodeActionWidget",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "cmd+enter",             "command": "-previewSelectedCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "ctrl+n",                "command": "-selectNextCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "cmd+down",              "command": "-selectNextCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "down",                  "command": "-selectNextCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "ctrl+p",                "command": "-selectPrevCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "cmd+up",                "command": "-selectPrevCodeAction",
-                                         "when": "actionWidgetVisible" },
+                                         "when": "codeActionMenuVisible" },
     { "key": "up",                    "command": "-selectPrevCodeAction",
-                                         "when": "actionWidgetVisible" }
+                                         "when": "codeActionMenuVisible" }
     ]
     
     
