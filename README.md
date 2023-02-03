@@ -1,42 +1,26 @@
-## A collection of default keybindings for VS Code on Mac, Windows and Linux. 
+Keybindings for VS Code
 
-A list of the default keybindings for VS Code is surprisingly hard to find, even in the VS Code source, so I collected them all here. I've also included `negative` keybindings, which unmap the keybindings.
+# Why
 
+Code uses key combinations that are idiomatic to each platform. "Find" might be bound to F3 on Windows, but Command-F on Mac. This can be supremely annoying if you use Code on multiple operating systems, in which case it's preferable to use keyboard shortcuts that feel the same on each OS. 
 
-You may find these useful if you switch platforms and want your old key map back, although it's likely that you will run into conflicts with system shortcuts. 
+This repo keeps an up-to-date dump of key bindings for Code on each operating system, which can be used to apply default keys for another OS, or remove Code's default keys entirely. 
 
-To use them, Open up "Keyboard Shortcuts (JSON)", paste the `negative` keybindings for your current platform, then the keybindings for the platform you want. E.g. If you're on a mac and want linux keys, copy the values from `macos.negative.keybindings.json` and paste them in your keyboard shortcuts, then copy and paste everything in `linux.keybindings.json`. 
+# How to use these files
 
+Press `F1` or `Ctrl Shift P` or `Cmd Shift P` to open the "Show All Commands" search box, then search for "keyboard" and choose "Preferences: Open Keyboard Shortcuts (JSON)". This will open a new editor file containing the custom key combinations you've already configured - be sure not to overwrite these. Paste in the contents of the file you want - that's it! For example, if you're on Linux but want to use Mac keys, paste the contents of `macos.keybindings.json` into your editor. 
 
-If the latest keybindings for your OS are missing, let me know, or open a PR!  
+# Unmapping
 
-#### How to get the latest keybindings if the ones here aren't up to date (optional):
+The `.negative.keybindings.json` are "opposite" mappings - they remove keyboard shortcuts for a given OS. These will return VS Code to a blank slate, with no keyboard shortcuts at all, so it generally only makes sense to use these in conjunction with another keybinding file. 
 
-* First clone this repo, e.g. `git clone https://github.com/codebling/vs-code-default-keybindings.git`
+One would typically only use these if you found yourself accidentally triggering certain actions - you may be pressing keys which normally do nothing in VS Code on another OS. 
 
-* Then create two empty directories, `empty1` and `empty2`
+For example, if you're used to working on Windows but are currently on Mac, you can apply `macos.negative.keybindings.json` (as described in [How to use these files](#how-to-use-these-files)) to remove all the Mac shortcuts. Then, at the bottom of the Code keybindings.json editor, delete the bottom `]`, add a comma `,`, then paste the contents of `windows.keybindings.json`. Remove the top `[` from the pasted contents. If you've done this correctly, there should only be one set of `[` and `]` at the top level and VS Code should not complain when the file is saved. 
 
-* Linux
+# Contributors
 
-    * In a terminal, run `code --extensions-dir "/path/to/empty1" --user-data-dir "/path/to/empty2"` using the paths to the directories you made earlier. 
-
-* Windows
-
-    * In the command line, run `"C:\Program Files\Microsoft VS Code\Code.exe" --extensions-dir "C:\path\to\empty1" --user-data-dir "C:\path\to\empty2"` using the paths to the directories you made earlier. 
-
-* Mac
-
-    * In a terminal, run
-    * `export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"`
-    * `code --extensions-dir "/path/to/empty1" --user-data-dir "/path/to/empty2"` using the paths to the directories you made earlier. 
-
-* Now an instance of VSCode will appear that has no extensions loaded.
-
-* Use Quick Open (ctrl+shift+P on Windows and Linux, cmd+shift+P on Mac) and type in Open Default Keyboard Shortcuts (JSON).
-
-* Copy the contents of the file that is opened and paste them into a file named `vs-code-default-keybindings/scripts/linux.keybindings.raw.json` (or `vs-code-default-keybindings/scripts/windows.keybindings.raw.json` or `vs-code-default-keybindings/scripts/macos.keybindings.raw.json`)
-
-* Run the python script `vs-code-default-keybindings/scripts/process_json.py`. You should see a result like `Wrote to ../linux.keybindings.json`.
-
-* You now have an up-to-date `.keybindings.json`. Feel free to send a PR to this project.
-
+This project was made possible by the following contributors:
+* [moltenform](https://github.com/moltenform), who created the Python scripts to treat the files
+* [tshino](https://github.com/tshino), who was able to automate the process of retrieving new shortcuts from VS Code and package it in GitHub Actions
+* [zimtsui](https://github.com/zimtsui), [blackwindforce](https://github.com/blackwindforce), and others, who contributed updates to the binding files before the process was automated. 
