@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.82.2 for Windows
+// Default Keybindings of Visual Studio Code 1.82.3 for Windows
   
 [
   { "key": "escape escape",         "command": "workbench.action.exitZenMode",
