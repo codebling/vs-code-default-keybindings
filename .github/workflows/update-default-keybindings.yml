@@ -38,7 +38,7 @@ jobs:
       working-directory: ./scripts/get_default_keybindings
       if: runner.os != 'Linux'
     - name: Upload the output file
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: raw-default-keybindings-${{ matrix.os }}
         path: scripts/*.keybindings.raw.json
