@@ -18,6 +18,10 @@ One would typically only use these if you found yourself accidentally triggering
 
 For example, if you're used to working on Windows but are currently on Mac, you can apply `macos.negative.keybindings.json` (as described in [How to use these files](#how-to-use-these-files)) to remove all the Mac shortcuts. Then, at the bottom of the Code keybindings.json editor, delete the bottom `]`, add a comma `,`, then paste the contents of `windows.keybindings.json`. Remove the top `[` from the pasted contents. If you've done this correctly, there should only be one set of `[` and `]` at the top level and VS Code should not complain when the file is saved. 
 
+# VS Code Extension
+
+[jbro](https://github.com/jbro/vscode-default-keybindings) has developed [an extension](https://marketplace.visualstudio.com/items?itemName=jbro.vscode-default-keybindings) (or [link to Open VSX Registroy](https://open-vsx.org/extension/jbro/vscode-default-keybindings) for those using open source versions of VS Code) to facilitate applying these settings. Install the extension, then installing the and removing keymaps for other operatings systems is as easy as changing a few settings. Have a look at the extension documentation for more details.
+
 # Contributors
 
 This project was made possible by the following contributors:
