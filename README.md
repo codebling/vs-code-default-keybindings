@@ -1,5 +1,11 @@
 Keybindings for VS Code
 
+- [Why](#why)
+- [How to use these files](#how-to-use-these-files)
+- [Unmapping](#unmapping)
+- [VS Code Extension](#vs-code-extension)
+- [Contributors](#contributors)
+
 # Why
 
 Code uses key combinations that are idiomatic to each platform. "Find" might be bound to F3 on Windows, but Command-F on Mac. This can be supremely annoying if you use Code on multiple operating systems, in which case it's preferable to use keyboard shortcuts that feel the same on each OS. 
