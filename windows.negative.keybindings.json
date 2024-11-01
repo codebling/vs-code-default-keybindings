@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.95.0 for Windows
+// Default Keybindings of Visual Studio Code 1.95.1 for Windows
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1229,7 +1229,7 @@
   { "key": "ctrl+i",                "command": "-workbench.action.chat.holdToVoiceChatInChatView",
                                        "when": "chatIsEnabled && hasSpeechProvider && !chatSessionRequestInProgress && !editorFocus && !inChatInput && !inlineChatFocused && !notebookEditorFocused" },
   { "key": "ctrl+l",                "command": "-workbench.action.chat.newChat",
-                                       "when": "chatIsEnabled && inChat" },
+                                       "when": "chatIsEnabled && inChat && chatLocation != 'editing-session'" },
   { "key": "ctrl+alt+pagedown",     "command": "-workbench.action.chat.nextCodeBlock",
                                        "when": "chatIsEnabled && inChat" },
   { "key": "ctrl+f9",               "command": "-workbench.action.chat.nextFileTree",
