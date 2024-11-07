@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.95.0 for macOS
+// Default Keybindings of Visual Studio Code 1.95.1 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1359,7 +1359,7 @@
     { "key": "cmd+i",                 "command": "-workbench.action.chat.holdToVoiceChatInChatView",
                                          "when": "chatIsEnabled && hasSpeechProvider && !chatSessionRequestInProgress && !editorFocus && !inChatInput && !inlineChatFocused && !notebookEditorFocused" },
     { "key": "ctrl+l",                "command": "-workbench.action.chat.newChat",
-                                         "when": "chatIsEnabled && inChat" },
+                                         "when": "chatIsEnabled && inChat && chatLocation != 'editing-session'" },
     { "key": "alt+cmd+pagedown",      "command": "-workbench.action.chat.nextCodeBlock",
                                          "when": "chatIsEnabled && inChat" },
     { "key": "cmd+f9",                "command": "-workbench.action.chat.nextFileTree",
