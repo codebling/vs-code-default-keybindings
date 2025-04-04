@@ -1,6 +1,7 @@
 Keybindings for VS Code
 
 - [Why](#why)
+- [Example](#example)
 - [How to use these files](#how-to-use-these-files)
 - [Unmapping](#unmapping)
 - [VS Code Extension](#vs-code-extension)
@@ -11,6 +12,10 @@ Keybindings for VS Code
 Code uses key combinations that are idiomatic to each platform. "Find" might be bound to F3 on Windows, but Command-F on Mac. This can be supremely annoying if you use Code on multiple operating systems, in which case it's preferable to use keyboard shortcuts that feel the same on each OS. 
 
 This repo keeps an up-to-date dump of key bindings for Code on each operating system, which can be used to apply default keys for another OS, or remove Code's default keys entirely. 
+
+# Example
+
+Situation: you are used to working on Windows but you are currently on a Mac. You notice Ctrl+Z doesn't work, because on a Mac the default binding is Cmd+Z, which is annoying because it breaks your muscle memory, interrupting your flow state. You open the keybindings file and paste macos.negative.keybindings.json. This removes the default Mac keybindings. Then you paste windows.keybindings.json. This adds default Windows keybindings. Ctrl+Z now works.
 
 # How to use these files
 
