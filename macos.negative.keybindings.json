@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.100.0 for macOS
+// Default Keybindings of Visual Studio Code 1.100.2 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
