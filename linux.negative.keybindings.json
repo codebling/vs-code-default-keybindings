@@ -1644,8 +1644,6 @@
   { "key": "ctrl+numpad0",          "command": "-workbench.action.zoomReset" },
   { "key": "ctrl+shift+m",          "command": "-workbench.actions.view.problems",
                                        "when": "workbench.panel.markers.view.active" },
-  { "key": "escape",                "command": "-workbench.actions.workbench.panel.output.clearFilterText",
-                                       "when": "outputFilterFocus" },
   { "key": "escape",                "command": "-workbench.banner.focusBanner",
                                        "when": "bannerFocused" },
   { "key": "down",                  "command": "-workbench.banner.focusNextAction",
