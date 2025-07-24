@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.102.1 for macOS
+// Default Keybindings of Visual Studio Code 1.102.2 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -1813,8 +1813,6 @@
     { "key": "cmd+numpad0",           "command": "workbench.action.zoomReset" },
     { "key": "shift+cmd+m",           "command": "workbench.actions.view.problems",
                                          "when": "workbench.panel.markers.view.active" },
-    { "key": "escape",                "command": "workbench.actions.workbench.panel.output.clearFilterText",
-                                         "when": "outputFilterFocus" },
     { "key": "escape",                "command": "workbench.banner.focusBanner",
                                          "when": "bannerFocused" },
     { "key": "down",                  "command": "workbench.banner.focusNextAction",
