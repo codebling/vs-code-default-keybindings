@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.106.0 for Windows
+// Default Keybindings of Visual Studio Code 1.106.3 for Windows
   
 [
   { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -853,7 +853,7 @@
   { "key": "ctrl+down",             "command": "inlineChat.viewInChat",
                                        "when": "inChatInput && inlineChatHasNotebookInline && inlineChatVisible && activeEditor == 'workbench.editor.notebook' || inChatInput && inlineChatHasProvider && inlineChatVisible && activeEditor != 'workbench.editor.notebook'" },
   { "key": "enter",                 "command": "inlineChat2.keep",
-                                       "when": "chatEdits.hasEditorModifications && chatInputHasFocus && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && !chatInputHasText && chatLocation == 'editor' && activeEditor != 'workbench.editor.notebook' || chatEdits.hasEditorModifications && chatInputHasFocus && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.isRequestInProgress && !chatInputHasText && activeEditor == 'workbench.editor.notebook' && chatLocation == 'editor'" },
+                                       "when": "chatEdits.hasEditorModifications && chatInputHasFocus && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && !chatInputHasText && activeEditor != 'workbench.editor.notebook' || chatEdits.hasEditorModifications && chatInputHasFocus && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.isRequestInProgress && !chatInputHasText && activeEditor == 'workbench.editor.notebook'" },
   { "key": "ctrl+up",               "command": "interactive.history.focus",
                                        "when": "isCompositeNotebook && isLinux && !notebookEditorFocused || isCompositeNotebook && isWindows && !notebookEditorFocused" },
   { "key": "down",                  "command": "interactive.history.next",
@@ -1663,8 +1663,6 @@
   { "key": "ctrl+numpad0",          "command": "workbench.action.zoomReset" },
   { "key": "ctrl+shift+m",          "command": "workbench.actions.view.problems",
                                        "when": "workbench.panel.markers.view.active" },
-  { "key": "escape",                "command": "workbench.actions.workbench.panel.output.clearFilterText",
-                                       "when": "outputFilterFocus" },
   { "key": "escape",                "command": "workbench.banner.focusBanner",
                                        "when": "bannerFocused" },
   { "key": "down",                  "command": "workbench.banner.focusNextAction",
@@ -1861,7 +1859,7 @@
   { "key": "ctrl+enter",            "command": "inlineChat.acceptChanges",
                                        "when": "inlineChatHasNotebookInline && inlineChatVisible && activeEditor == 'workbench.editor.notebook' || inlineChatHasProvider && inlineChatVisible && activeEditor != 'workbench.editor.notebook'" },
   { "key": "ctrl+enter",            "command": "inlineChat2.keep",
-                                       "when": "chatEdits.hasEditorModifications && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && chatLocation == 'editor' && activeEditor != 'workbench.editor.notebook' || chatEdits.hasEditorModifications && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.isRequestInProgress && activeEditor == 'workbench.editor.notebook' && chatLocation == 'editor'" },
+                                       "when": "chatEdits.hasEditorModifications && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && activeEditor != 'workbench.editor.notebook' || chatEdits.hasEditorModifications && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.isRequestInProgress && activeEditor == 'workbench.editor.notebook'" },
   { "key": "end",                   "command": "lastCompressedFolder",
                                        "when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedLastFocus && !inputFocus" },
   { "key": "ctrl+shift+t",          "command": "mergeEditor.toggleBetweenInputs",
