@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.107.0 for Linux
+// Default Keybindings of Visual Studio Code 1.107.1 for Linux
   
 [
   { "key": "escape escape",         "command": "workbench.action.exitZenMode",
