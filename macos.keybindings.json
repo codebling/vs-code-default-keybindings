@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.108.0 for macOS
+// Default Keybindings of Visual Studio Code 1.108.1 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -2019,7 +2019,8 @@
                                          "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
     { "key": "shift+cmd+o",           "command": "editor.action.accessibleViewGoToSymbol",
                                          "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
-    { "key": "shift+cmd+g",           "command": "editor.action.announceCursorPosition" },
+    { "key": "shift+alt+cmd+g",       "command": "editor.action.announceCursorPosition",
+                                         "when": "accessibilityModeEnabled && editorTextFocus" },
     { "key": "cmd+e",                 "command": "editor.action.toggleScreenReaderAccessibilityMode",
                                          "when": "accessibilityHelpIsShown" },
     { "key": "shift+alt+f1",          "command": "editor.action.toggleScreenReaderAccessibilityMode" },

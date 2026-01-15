@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.108.0 for Linux
+// Default Keybindings of Visual Studio Code 1.108.1 for Linux
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1836,7 +1836,8 @@
                                        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
   { "key": "ctrl+shift+o",          "command": "-editor.action.accessibleViewGoToSymbol",
                                        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
-  { "key": "ctrl+shift+g",          "command": "-editor.action.announceCursorPosition" },
+  { "key": "ctrl+shift+alt+g",      "command": "-editor.action.announceCursorPosition",
+                                       "when": "accessibilityModeEnabled && editorTextFocus" },
   { "key": "ctrl+e",                "command": "-editor.action.toggleScreenReaderAccessibilityMode",
                                        "when": "accessibilityHelpIsShown" },
   { "key": "shift+alt+f4",          "command": "-editor.action.toggleScreenReaderAccessibilityMode" },
