@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.108.0 for Windows
+// Default Keybindings of Visual Studio Code 1.108.1 for Windows
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1848,7 +1848,8 @@
                                        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
   { "key": "ctrl+shift+o",          "command": "-editor.action.accessibleViewGoToSymbol",
                                        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown" },
-  { "key": "ctrl+shift+g",          "command": "-editor.action.announceCursorPosition" },
+  { "key": "ctrl+shift+alt+g",      "command": "-editor.action.announceCursorPosition",
+                                       "when": "accessibilityModeEnabled && editorTextFocus" },
   { "key": "ctrl+e",                "command": "-editor.action.toggleScreenReaderAccessibilityMode",
                                        "when": "accessibilityHelpIsShown" },
   { "key": "shift+alt+f1",          "command": "-editor.action.toggleScreenReaderAccessibilityMode" },
