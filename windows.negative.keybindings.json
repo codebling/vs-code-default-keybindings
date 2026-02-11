@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.109.0 for Windows
+// Default Keybindings of Visual Studio Code 1.109.2 for Windows
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -146,6 +146,8 @@
                                        "when": "chatCursorAtTop && inChatInput && !quickChatHasFocus" },
   { "key": "ctrl+up",               "command": "-chat.action.focus",
                                        "when": "inChatInput && isLinux && !quickChatHasFocus || inChatInput && isWindows && !quickChatHasFocus" },
+  { "key": "escape",                "command": "-chat.models.action.clearSearchResults",
+                                       "when": "inModelsEditor && inModelsSearch" },
   { "key": "shift+escape",          "command": "-closeBreakpointWidget",
                                        "when": "breakpointWidgetVisible && textInputFocus" },
   { "key": "escape",                "command": "-closeBreakpointWidget",
