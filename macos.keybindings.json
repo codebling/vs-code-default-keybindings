@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.109.2 for macOS
+// Default Keybindings of Visual Studio Code 1.109.3 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -607,11 +607,11 @@
     { "key": "ctrl+alt+enter",        "command": "workbench.action.chat.runInTerminal",
                                          "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat" },
     { "key": "enter",                 "command": "workbench.action.chat.submit",
-                                         "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff" },
+                                         "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatHasToolConfirmation && !chatSessionRequestInProgress && !withinEditSessionDiff" },
     { "key": "cmd+enter",             "command": "workbench.action.chat.submitWithCodebase",
-                                         "when": "chatInputHasText && inChatInput && !chatSessionRequestInProgress" },
+                                         "when": "chatInputHasText && inChatInput && !chatHasToolConfirmation && !chatSessionRequestInProgress" },
     { "key": "shift+alt+enter",       "command": "workbench.action.chat.submitWithoutDispatching",
-                                         "when": "chatInputHasText && inChatInput && !chatSessionRequestInProgress && chatAgentKind == 'ask'" },
+                                         "when": "chatInputHasText && inChatInput && !chatHasToolConfirmation && !chatSessionRequestInProgress && chatAgentKind == 'ask'" },
     { "key": "alt+f5",                "command": "workbench.action.editor.nextChange",
                                          "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'" },
     { "key": "shift+alt+f5",          "command": "workbench.action.editor.previousChange",
@@ -628,6 +628,10 @@
                                          "when": "editorFocus && testing.isPeekVisible" },
     { "key": "shift+alt+f8",          "command": "testing.goToPreviousMessage",
                                          "when": "editorFocus && testing.isPeekVisible" },
+    { "key": "alt+enter",             "command": "workbench.action.chat.queueMessage",
+                                         "when": "chatHasToolConfirmation && chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's' || chatHasToolConfirmation && chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatHasToolConfirmation && chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's' || chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's'" },
+    { "key": "enter",                 "command": "workbench.action.chat.steerWithMessage",
+                                         "when": "chatHasToolConfirmation && chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's' || chatHasToolConfirmation && chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest != 's' || chatHasToolConfirmation && chatInputHasText && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's' || chatInputHasText && chatSessionRequestInProgress && config.chat.requestQueuing.enabled && inChatInput && chatEditingSentRequest == 'qs' && chatEditingSentRequest != 's'" },
     { "key": "shift+cmd+up",          "command": "workbench.chat.action.focusLastFocused",
                                          "when": "chatCursorAtTop && inChatInput && !quickChatHasFocus" },
     { "key": "shift+cmd+up",          "command": "workbench.chat.action.focusLastFocused",
@@ -1404,7 +1408,7 @@
     { "key": "f12",                   "command": "workbench.action.browser.toggleDevTools",
                                          "when": "activeEditor == 'workbench.editor.browser'" },
     { "key": "cmd+escape",            "command": "workbench.action.chat.cancel",
-                                         "when": "chatSessionRequestInProgress && !chatRemoteJobCreating" },
+                                         "when": "chatHasToolConfirmation && !chatRemoteJobCreating || chatSessionRequestInProgress && !chatRemoteJobCreating" },
     { "key": "enter",                 "command": "workbench.action.chat.editRequests",
                                          "when": "inChat && !textInputFocus" },
     { "key": "shift+cmd+a",           "command": "workbench.action.chat.focusConfirmation",
