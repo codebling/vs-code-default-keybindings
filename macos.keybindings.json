@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.113.0 for macOS
+// Default Keybindings of Visual Studio Code 1.114.0 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -1182,6 +1182,14 @@
     { "key": "ctrl+cmd+enter",        "command": "quickInput.accept",
                                          "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
     { "key": "cmd+enter",             "command": "quickInput.accept",
+                                         "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+    { "key": "ctrl+shift+alt+enter",  "command": "quickInput.accept",
+                                         "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+    { "key": "ctrl+shift+enter",      "command": "quickInput.accept",
+                                         "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+    { "key": "shift+alt+enter",       "command": "quickInput.accept",
+                                         "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+    { "key": "shift+enter",           "command": "quickInput.accept",
                                          "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
     { "key": "ctrl+alt+enter",        "command": "quickInput.accept",
                                          "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
