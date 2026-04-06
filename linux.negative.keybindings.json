@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.113.0 for Linux
+// Default Keybindings of Visual Studio Code 1.114.0 for Linux
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1082,6 +1082,14 @@
                                        "when": "problemFocus" },
   { "key": "ctrl+.",                "command": "-problems.action.showQuickFixes",
                                        "when": "problemFocus" },
+  { "key": "ctrl+shift+alt+enter",  "command": "-quickInput.accept",
+                                       "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+  { "key": "ctrl+shift+enter",      "command": "-quickInput.accept",
+                                       "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+  { "key": "shift+alt+enter",       "command": "-quickInput.accept",
+                                       "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
+  { "key": "shift+enter",           "command": "-quickInput.accept",
+                                       "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
   { "key": "ctrl+alt+enter",        "command": "-quickInput.accept",
                                        "when": "inQuickInput && !isComposing && quickInputType != 'quickWidget'" },
   { "key": "ctrl+enter",            "command": "-quickInput.accept",
