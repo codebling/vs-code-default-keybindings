@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.116.0 for Windows
+// Default Keybindings of Visual Studio Code 1.117.0 for Windows
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -154,6 +154,8 @@
                                        "when": "chatCursorAtTop && inChatInput && !quickChatHasFocus" },
   { "key": "ctrl+up",               "command": "-chat.action.focus",
                                        "when": "inChatInput && isLinux && !quickChatHasFocus || inChatInput && isWindows && !quickChatHasFocus" },
+  { "key": "escape",                "command": "-chat.models.action.clearSearchResults",
+                                       "when": "inModelsEditor && inModelsSearch" },
   { "key": "shift+escape",          "command": "-closeBreakpointWidget",
                                        "when": "breakpointWidgetVisible && textInputFocus" },
   { "key": "escape",                "command": "-closeBreakpointWidget",
@@ -553,7 +555,7 @@
   { "key": "ctrl+alt+enter",        "command": "-workbench.action.chat.runInTerminal",
                                        "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat" },
   { "key": "enter",                 "command": "-workbench.action.chat.submit",
-                                       "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff" },
+                                       "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff || chatInputHasText && chatSessionOptionsValid && inChatInput && !withinEditSessionDiff && chatEditingSentRequest == 's'" },
   { "key": "ctrl+enter",            "command": "-workbench.action.chat.submitWithCodebase",
                                        "when": "chatInputHasText && inChatInput && !chatSessionRequestInProgress" },
   { "key": "shift+alt+enter",       "command": "-workbench.action.chat.submitWithoutDispatching",
@@ -1281,7 +1283,7 @@
   { "key": "ctrl+up",               "command": "-widgetNavigation.focusPrevious",
                                        "when": "inputFocus && navigableContainerFocused || navigableContainerFocused && treestickyScrollFocused || navigableContainerFocused && !listFocus || navigableContainerFocused && listScrollAtBoundary == 'both' || navigableContainerFocused && listScrollAtBoundary == 'top'" },
   { "key": "escape",                "command": "-workbench.action.browser.addElementToChat",
-                                       "when": "browserElementSelectionActive && browserHasUrl && chatIsEnabled && config.chat.sendElementsToChat.enabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
+                                       "when": "browserElementSelectionActive && browserHasUrl && chatIsEnabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
   { "key": "ctrl+l",                "command": "-workbench.action.browser.focusUrlInput",
                                        "when": "activeEditor == 'workbench.editor.browser'" },
   { "key": "ctrl+alt+/",            "command": "-workbench.action.browser.openFromViewMenu" },
@@ -1710,6 +1712,8 @@
   { "key": "ctrl+numpad0",          "command": "-workbench.action.zoomReset" },
   { "key": "ctrl+shift+m",          "command": "-workbench.actions.view.problems",
                                        "when": "workbench.panel.markers.view.active" },
+  { "key": "escape",                "command": "-workbench.actions.workbench.panel.output.clearFilterText",
+                                       "when": "outputFilterFocus" },
   { "key": "escape",                "command": "-workbench.banner.focusBanner",
                                        "when": "bannerFocused" },
   { "key": "down",                  "command": "-workbench.banner.focusNextAction",
@@ -1974,7 +1978,7 @@
   { "key": "right",                 "command": "-quickInput.acceptInBackground",
                                        "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'" },
   { "key": "ctrl+shift+c",          "command": "-workbench.action.browser.addElementToChat",
-                                       "when": "browserHasUrl && chatIsEnabled && config.chat.sendElementsToChat.enabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
+                                       "when": "browserHasUrl && chatIsEnabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
   { "key": "ctrl+enter",            "command": "-workbench.action.browser.addFocusedElementToChat",
                                        "when": "browserElementSelectionActive && browserFocused" },
   { "key": "browserback",           "command": "-workbench.action.browser.goBack",

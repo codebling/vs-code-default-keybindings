@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.116.0 for macOS
+// Default Keybindings of Visual Studio Code 1.117.0 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -617,7 +617,7 @@
     { "key": "ctrl+alt+enter",        "command": "workbench.action.chat.runInTerminal",
                                          "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat" },
     { "key": "enter",                 "command": "workbench.action.chat.submit",
-                                         "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff" },
+                                         "when": "chatInputHasText && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff || chatInputHasText && chatSessionOptionsValid && inChatInput && !withinEditSessionDiff && chatEditingSentRequest == 's'" },
     { "key": "cmd+enter",             "command": "workbench.action.chat.submitWithCodebase",
                                          "when": "chatInputHasText && inChatInput && !chatSessionRequestInProgress" },
     { "key": "shift+alt+enter",       "command": "workbench.action.chat.submitWithoutDispatching",
@@ -1425,7 +1425,7 @@
     { "key": "cmd+up",                "command": "widgetNavigation.focusPrevious",
                                          "when": "inputFocus && navigableContainerFocused || navigableContainerFocused && treestickyScrollFocused || navigableContainerFocused && !listFocus || navigableContainerFocused && listScrollAtBoundary == 'both' || navigableContainerFocused && listScrollAtBoundary == 'top'" },
     { "key": "escape",                "command": "workbench.action.browser.addElementToChat",
-                                         "when": "browserElementSelectionActive && browserHasUrl && chatIsEnabled && config.chat.sendElementsToChat.enabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
+                                         "when": "browserElementSelectionActive && browserHasUrl && chatIsEnabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
     { "key": "cmd+l",                 "command": "workbench.action.browser.focusUrlInput",
                                          "when": "activeEditor == 'workbench.editor.browser'" },
     { "key": "alt+cmd+/",             "command": "workbench.action.browser.openFromViewMenu" },
@@ -2160,7 +2160,7 @@
     { "key": "right",                 "command": "quickInput.acceptInBackground",
                                          "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'" },
     { "key": "shift+cmd+c",           "command": "workbench.action.browser.addElementToChat",
-                                         "when": "browserHasUrl && chatIsEnabled && config.chat.sendElementsToChat.enabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
+                                         "when": "browserHasUrl && chatIsEnabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
     { "key": "cmd+enter",             "command": "workbench.action.browser.addFocusedElementToChat",
                                          "when": "browserElementSelectionActive && browserFocused" },
     { "key": "cmd+left",              "command": "workbench.action.browser.goBack",
