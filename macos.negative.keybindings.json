@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.117.0 for macOS
+// Default Keybindings of Visual Studio Code 1.118.0 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -154,12 +154,6 @@
                                          "when": "editorTextFocus && inlineChatVisible && !accessibilityModeEnabled && !inlineChatFocused && !isEmbeddedDiffEditor && inlineChatOuterCursorPosition == 'above'" },
     { "key": "cmd+up",                "command": "-inlineChat.focus",
                                          "when": "editorTextFocus && inlineChatVisible && !accessibilityModeEnabled && !inlineChatFocused && !isEmbeddedDiffEditor && inlineChatOuterCursorPosition == 'below'" },
-    { "key": "escape",                "command": "-inlineChat.hideInput",
-                                         "when": "inlineChatHasEditsAgent && inlineChatInputWidgetFocused || inlineChatHasNotebookAgent && inlineChatInputWidgetFocused && activeEditor == 'workbench.editor.notebook'" },
-    { "key": "enter",                 "command": "-inlineChat.queueInChat",
-                                         "when": "config.inlineChat.askInChat && inlineChatFileBelongsToChat && inlineChatHasEditsAgent && inlineChatInputHasText && inlineChatInputWidgetFocused || config.inlineChat.askInChat && inlineChatFileBelongsToChat && inlineChatHasNotebookAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && activeEditor == 'workbench.editor.notebook'" },
-    { "key": "enter",                 "command": "-inlineChat.submitInput",
-                                         "when": "inlineChatHasEditsAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !config.inlineChat.askInChat || inlineChatHasEditsAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !inlineChatFileBelongsToChat || inlineChatHasEditsAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !config.inlineChat.askInChat && !inlineChatFileBelongsToChat || inlineChatHasNotebookAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !config.inlineChat.askInChat && activeEditor == 'workbench.editor.notebook' || inlineChatHasNotebookAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook' || inlineChatHasNotebookAgent && inlineChatInputHasText && inlineChatInputWidgetFocused && !config.inlineChat.askInChat && !inlineChatFileBelongsToChat && activeEditor == 'workbench.editor.notebook'" },
     { "key": "f12",                   "command": "-goToNextReference",
                                          "when": "inReferenceSearchEditor || referenceSearchVisible" },
     { "key": "f4",                    "command": "-goToNextReference",
@@ -1428,7 +1422,7 @@
                                          "when": "browserElementSelectionActive && browserHasUrl && chatIsEnabled && !browserHasError && activeEditor == 'workbench.editor.browser'" },
     { "key": "cmd+l",                 "command": "-workbench.action.browser.focusUrlInput",
                                          "when": "activeEditor == 'workbench.editor.browser'" },
-    { "key": "alt+cmd+/",             "command": "-workbench.action.browser.openFromViewMenu" },
+    { "key": "alt+cmd+/",             "command": "-workbench.action.browser.openOrList" },
     { "key": "shift+cmd+a",           "command": "-workbench.action.browser.quickOpen",
                                          "when": "activeEditor == 'workbench.editor.browser'" },
     { "key": "f12",                   "command": "-workbench.action.browser.toggleDevTools",
@@ -1445,6 +1439,8 @@
                                          "when": "inChat && quickChatHasFocus && !inChatInput" },
     { "key": "shift+cmd+a",           "command": "-workbench.action.chat.focusQuestionCarousel",
                                          "when": "chatHasQuestionCarousel && inChat" },
+    { "key": "alt+t",                 "command": "-workbench.action.chat.focusQuestionCarouselTerminal",
+                                         "when": "chatHasQuestionCarousel && chatQuestionCarouselHasTerminal && inChat && inChatQuestionCarousel" },
     { "key": "shift+cmd+/",           "command": "-workbench.action.chat.focusTip",
                                          "when": "inChat || inChat && inChatTip" },
     { "key": "cmd+i",                 "command": "-workbench.action.chat.holdToVoiceChatInChatView",
@@ -1938,8 +1934,6 @@
                                          "when": "chatEdits.isRequestInProgress && chatInputHasFocus && inlineChatHasEditsAgent && inlineChatVisible || chatEdits.isRequestInProgress && editorFocus && inlineChatHasEditsAgent && inlineChatVisible || chatEdits.isRequestInProgress && chatInputHasFocus && inlineChatHasNotebookAgent && inlineChatVisible && activeEditor == 'workbench.editor.notebook' || chatEdits.isRequestInProgress && editorFocus && inlineChatHasNotebookAgent && inlineChatVisible && activeEditor == 'workbench.editor.notebook'" },
     { "key": "escape",                "command": "-inlineChat2.close",
                                          "when": "chatInputHasFocus && inlineChatHasEditsAgent && inlineChatVisible || chatInputHasFocus && inlineChatHasNotebookAgent && inlineChatVisible && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.hasEditorModifications || editorFocus && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.hasEditorModifications && activeEditor == 'workbench.editor.notebook'" },
-    { "key": "escape",                "command": "-inlineChat2.undo",
-                                         "when": "chatInputHasFocus && inlineChatHasEditsAgent && inlineChatVisible && config.inlineChat.renderMode == 'hover' || chatInputHasFocus && inlineChatHasNotebookAgent && inlineChatVisible && activeEditor == 'workbench.editor.notebook' && config.inlineChat.renderMode == 'hover' || editorFocus && inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.hasEditorModifications && config.inlineChat.renderMode == 'hover' || editorFocus && inlineChatHasNotebookAgent && inlineChatVisible && !chatEdits.hasEditorModifications && activeEditor == 'workbench.editor.notebook' && config.inlineChat.renderMode == 'hover'" },
     { "key": "f3",                    "command": "-list.find.replInputFocus",
                                          "when": "view == 'workbench.panel.repl.view'" },
     { "key": "alt+cmd+f",             "command": "-list.find.replInputFocus",
