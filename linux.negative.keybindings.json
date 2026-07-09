@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.127.0 for Linux
+// Default Keybindings of Visual Studio Code 1.128.0 for Linux
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1338,7 +1338,7 @@
   { "key": "ctrl+alt+up",           "command": "-workbench.action.chat.previousUserPrompt",
                                        "when": "chatIsEnabled && inChat" },
   { "key": "delete",                "command": "-workbench.action.chat.restoreCheckpoint",
-                                       "when": "inChat && !inChatQuestionCarousel && !textInputFocus" },
+                                       "when": "inChat && !chatIsReadonly && !inChatQuestionCarousel && !textInputFocus" },
   { "key": "ctrl+alt+meta+/",       "command": "-workbench.action.chat.run-in-new-chat.prompt.current",
                                        "when": "chatIsEnabled && editorTextFocus && resourceSet && resourceLangId == 'prompt'" },
   { "key": "alt+meta+/",            "command": "-workbench.action.chat.run.prompt",
@@ -1354,7 +1354,7 @@
   { "key": "alt+t",                 "command": "-workbench.action.chat.toggleThinkingContentAccessibleView",
                                        "when": "accessibleViewIsShown && chatIsEnabled && accessibleViewCurrentProviderId == 'panelChat'" },
   { "key": "delete",                "command": "-workbench.action.chat.undoEdits",
-                                       "when": "inChat && !inChatQuestionCarousel && !textInputFocus" },
+                                       "when": "inChat && !chatIsReadonly && !inChatQuestionCarousel && !textInputFocus" },
   { "key": "ctrl+w",                "command": "-workbench.action.closeActiveEditor" },
   { "key": "ctrl+k ctrl+w",         "command": "-workbench.action.closeAllEditors" },
   { "key": "ctrl+k ctrl+shift+w",   "command": "-workbench.action.closeAllGroups" },

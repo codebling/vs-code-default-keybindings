@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.127.0 for macOS
+// Default Keybindings of Visual Studio Code 1.128.0 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -1484,7 +1484,7 @@
     { "key": "alt+cmd+up",            "command": "-workbench.action.chat.previousUserPrompt",
                                          "when": "chatIsEnabled && inChat" },
     { "key": "cmd+backspace",         "command": "-workbench.action.chat.restoreCheckpoint",
-                                         "when": "inChat && !inChatQuestionCarousel && !textInputFocus" },
+                                         "when": "inChat && !chatIsReadonly && !inChatQuestionCarousel && !textInputFocus" },
     { "key": "ctrl+alt+cmd+/",        "command": "-workbench.action.chat.run-in-new-chat.prompt.current",
                                          "when": "chatIsEnabled && editorTextFocus && resourceSet && resourceLangId == 'prompt'" },
     { "key": "ctrl+alt+/",            "command": "-workbench.action.chat.run.prompt",
@@ -1500,7 +1500,7 @@
     { "key": "alt+t",                 "command": "-workbench.action.chat.toggleThinkingContentAccessibleView",
                                          "when": "accessibleViewIsShown && chatIsEnabled && accessibleViewCurrentProviderId == 'panelChat'" },
     { "key": "cmd+backspace",         "command": "-workbench.action.chat.undoEdits",
-                                         "when": "inChat && !inChatQuestionCarousel && !textInputFocus" },
+                                         "when": "inChat && !chatIsReadonly && !inChatQuestionCarousel && !textInputFocus" },
     { "key": "cmd+w",                 "command": "-workbench.action.closeActiveEditor" },
     { "key": "cmd+k cmd+w",           "command": "-workbench.action.closeAllEditors" },
     { "key": "cmd+k shift+cmd+w",     "command": "-workbench.action.closeAllGroups" },
