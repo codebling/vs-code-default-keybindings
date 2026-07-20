@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.128.1 for Windows
+// Default Keybindings of Visual Studio Code 1.129.0 for Windows
   
 [
   { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -132,6 +132,8 @@
                                        "when": "refactorPreview.enabled && refactorPreview.hasCheckedChanges && focusedView == 'refactorPreview'" },
   { "key": "alt+enter",             "command": "-testing.editFocusedTest",
                                        "when": "focusedView == 'workbench.view.testing'" },
+  { "key": "escape",                "command": "-agentsVoice.disconnect",
+                                       "when": "agentsVoiceConnected && config.agents.voice.enabled && inChatInput && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
   { "key": "escape",                "command": "-notebook.cell.quitEdit",
                                        "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible && !inlineChatFocused" },
   { "key": "ctrl+alt+enter",        "command": "-notebook.cell.quitEdit",
@@ -707,7 +709,7 @@
   { "key": "escape",                "command": "-agentSession.exitAgentSessionProjection",
                                        "when": "chatInAgentSessionProjection && chatIsEnabled" },
   { "key": "ctrl+shift+space",      "command": "-agentsVoice.pttStopInChat",
-                                       "when": "agentsVoiceActive && config.agents.voice.enabled && inChatInput" },
+                                       "when": "agentsVoiceListening && config.agents.voice.enabled && inChatInput" },
   { "key": "ctrl+shift+space",      "command": "-agentsVoice.pushToTalk",
                                        "when": "agentsVoiceWidgetFocused && config.agents.voice.enabled && !inputFocus" },
   { "key": "ctrl+shift+space",      "command": "-agentsVoice.startVoiceInChat",
