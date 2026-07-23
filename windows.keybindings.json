@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.129.0 for Windows
+// Default Keybindings of Visual Studio Code 1.130.0 for Windows
   
 [
   { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -132,8 +132,10 @@
                                        "when": "refactorPreview.enabled && refactorPreview.hasCheckedChanges && focusedView == 'refactorPreview'" },
   { "key": "alt+enter",             "command": "testing.editFocusedTest",
                                        "when": "focusedView == 'workbench.view.testing'" },
+  { "key": "escape",                "command": "agentsVoice.cancelActiveRequest",
+                                       "when": "agentsVoiceConnected && chatSessionHasActiveRequest && config.agents.voice.enabled && inChatInput && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
   { "key": "escape",                "command": "agentsVoice.disconnect",
-                                       "when": "agentsVoiceConnected && config.agents.voice.enabled && inChatInput && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
+                                       "when": "agentsVoiceConnected && config.agents.voice.enabled && inChatInput && !chatSessionHasActiveRequest && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible" },
   { "key": "escape",                "command": "notebook.cell.quitEdit",
                                        "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible && !inlineChatFocused" },
   { "key": "ctrl+alt+enter",        "command": "notebook.cell.quitEdit",
@@ -708,8 +710,6 @@
                                        "when": "fileMatchOrMatchFocus && searchViewletVisible" },
   { "key": "escape",                "command": "agentSession.exitAgentSessionProjection",
                                        "when": "chatInAgentSessionProjection && chatIsEnabled" },
-  { "key": "ctrl+shift+space",      "command": "agentsVoice.pttStopInChat",
-                                       "when": "agentsVoiceListening && config.agents.voice.enabled && inChatInput" },
   { "key": "ctrl+shift+space",      "command": "agentsVoice.pushToTalk",
                                        "when": "agentsVoiceWidgetFocused && config.agents.voice.enabled && !inputFocus" },
   { "key": "ctrl+shift+space",      "command": "agentsVoice.startVoiceInChat",
@@ -1304,7 +1304,7 @@
   { "key": "alt+backspace",         "command": "workbench.action.chat.cancel",
                                        "when": "chatSessionHasActiveRequest && !chatRemoteJobCreating" },
   { "key": "enter",                 "command": "workbench.action.chat.editRequests",
-                                       "when": "inChat && !textInputFocus" },
+                                       "when": "inChat && !chatIsReadonly && !textInputFocus" },
   { "key": "ctrl+shift+a",          "command": "workbench.action.chat.focusConfirmation",
                                        "when": "accessibilityModeEnabled && chatIsEnabled && !chatHasQuestionCarousel" },
   { "key": "ctrl+down",             "command": "workbench.action.chat.focusInput",
@@ -1833,6 +1833,8 @@
                                        "when": "chatHasElicitationRequest && inChat" },
   { "key": "ctrl+enter",            "command": "workbench.action.chat.acceptTool",
                                        "when": "chatHasToolConfirmation && inChat" },
+  { "key": "escape",                "command": "workbench.action.chat.cancelSpeechToText",
+                                       "when": "chatSpeechToTextRecording && inChatInput" },
   { "key": "ctrl+shift+t",          "command": "workbench.action.chat.focusTodosView",
                                        "when": "inChatInput && chatAgentKind == 'agent' || inChatTodoList && chatAgentKind == 'agent'" },
   { "key": "ctrl+l",                "command": "workbench.action.chat.newChat",
@@ -1845,6 +1847,8 @@
                                        "when": "agentSessionsViewerFocused && !isSessionsWindow" },
   { "key": "ctrl+alt+enter",        "command": "workbench.action.chat.skipTool",
                                        "when": "chatHasToolConfirmation && inChat" },
+  { "key": "ctrl+i",                "command": "workbench.action.chat.toggleSpeechToText",
+                                       "when": "chatIsEnabled && chatSpeechToTextConfigured && inChatInput" },
   { "key": "escape",                "command": "workbench.action.closeModalEditor",
                                        "when": "editorPartModal && listFocus && !treeFindOpen && !treestickyScrollFocused" },
   { "key": "ctrl+pagedown",         "command": "workbench.action.debug.nextConsole",
