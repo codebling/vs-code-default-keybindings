@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.132.0 for Linux
+// Default Keybindings of Visual Studio Code 1.132.1 for Linux
   
 [
   { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -136,8 +136,6 @@
                                        "when": "chatCursorAtTop && inChatInput && !quickChatHasFocus" },
   { "key": "ctrl+up",               "command": "chat.action.focus",
                                        "when": "inChatInput && isLinux && !quickChatHasFocus || inChatInput && isWindows && !quickChatHasFocus" },
-  { "key": "escape",                "command": "chat.models.action.clearSearchResults",
-                                       "when": "inModelsEditor && inModelsSearch" },
   { "key": "shift+escape",          "command": "closeBreakpointWidget",
                                        "when": "breakpointWidgetVisible && textInputFocus" },
   { "key": "escape",                "command": "closeBreakpointWidget",
@@ -1713,8 +1711,6 @@
   { "key": "ctrl+numpad0",          "command": "workbench.action.zoomReset" },
   { "key": "ctrl+shift+m",          "command": "workbench.actions.view.problems",
                                        "when": "workbench.panel.markers.view.active" },
-  { "key": "escape",                "command": "workbench.actions.workbench.panel.output.clearFilterText",
-                                       "when": "outputFilterFocus" },
   { "key": "escape",                "command": "workbench.banner.focusBanner",
                                        "when": "bannerFocused" },
   { "key": "down",                  "command": "workbench.banner.focusNextAction",
