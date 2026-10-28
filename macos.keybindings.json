@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.143.1 for macOS
+// Default Keybindings of Visual Studio Code 1.144.0 for macOS
     
 [
     { "key": "escape escape",         "command": "workbench.action.exitZenMode",
@@ -924,16 +924,6 @@
                                          "when": "historyNavigationBackwardsEnabled && historyNavigationWidgetFocus && !suggestWidgetVisible" },
     { "key": "up",                    "command": "history.showPrevious",
                                          "when": "historyNavigationBackwardsEnabled && historyNavigationWidgetFocus && !suggestWidgetVisible" },
-    { "key": "down",                  "command": "iconSelectBox.focusDown",
-                                         "when": "iconSelectBoxFocus" },
-    { "key": "right",                 "command": "iconSelectBox.focusNext",
-                                         "when": "iconSelectBoxFocus && iconSelectBoxInputEmpty || iconSelectBoxFocus && !iconSelectBoxInputFocus" },
-    { "key": "left",                  "command": "iconSelectBox.focusPrevious",
-                                         "when": "iconSelectBoxFocus && iconSelectBoxInputEmpty || iconSelectBoxFocus && !iconSelectBoxInputFocus" },
-    { "key": "up",                    "command": "iconSelectBox.focusUp",
-                                         "when": "iconSelectBoxFocus" },
-    { "key": "enter",                 "command": "iconSelectBox.selectFocused",
-                                         "when": "iconSelectBoxFocus" },
     { "key": "alt+=",                 "command": "increaseSearchEditorContextLines",
                                          "when": "inSearchEditor" },
     { "key": "cmd+i",                 "command": "inlineChat.askInChat",
@@ -1470,7 +1460,7 @@
     { "key": "alt+t",                 "command": "workbench.action.chat.focusQuestionCarouselTerminal",
                                          "when": "chatHasQuestionCarousel && chatQuestionCarouselHasTerminal && inChat && inChatQuestionCarousel" },
     { "key": "shift+cmd+/",           "command": "workbench.action.chat.focusTip",
-                                         "when": "inChat || inChatComposer || inChat && inChatComposer || inChat && inChatTip || inChatComposer && inChatTip" },
+                                         "when": "inChat || inChat && inChatTip" },
     { "key": "escape",                "command": "workbench.action.chat.hideFind",
                                          "when": "chatFindInputFocused && chatFindWidgetVisible && inChat || chatFindWidgetFocused && chatFindWidgetVisible && inChat" },
     { "key": "cmd+i",                 "command": "workbench.action.chat.holdToVoiceChatInChatView",
@@ -1963,6 +1953,10 @@
                                          "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/" },
     { "key": "cmd+backspace",         "command": "agentSession.archive",
                                          "when": "agentSessionsViewerFocused && !agentSessionIsArchived && !agentSessionIsChild" },
+    { "key": "shift+i",               "command": "agentSession.markRead",
+                                         "when": "agentSessionsViewerFocused && listFocus && !inputFocus && !isSessionsWindow && !treestickyScrollFocused" },
+    { "key": "shift+u",               "command": "agentSession.markUnread",
+                                         "when": "agentSessionsViewerFocused && listFocus && !inputFocus && !isSessionsWindow && !treestickyScrollFocused" },
     { "key": "enter",                 "command": "agentSession.rename",
                                          "when": "agentSessionsViewerFocused && !agentSessionHasMultipleSelected && !agentSessionIsChild && chatSessionType == 'local' || agentSessionsViewerFocused && !agentSessionHasMultipleSelected && !agentSessionIsChild && chatSessionType =~ /^agent-host-/ || agentSessionsViewerFocused && !agentSessionHasMultipleSelected && !agentSessionIsChild && chatSessionType =~ /^remote-/" },
     { "key": "f2",                    "command": "agentSession.rename",
