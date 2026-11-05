@@ -1,4 +1,4 @@
-// Default Keybindings of Visual Studio Code 1.144.1 for macOS
+// Default Keybindings of Visual Studio Code 1.145.0 for macOS
     
 [
     { "key": "escape escape",         "command": "-workbench.action.exitZenMode",
@@ -674,6 +674,8 @@
                                          "when": "editorFocus" },
     { "key": "escape",                "command": "-workbench.action.browser.hideFind",
                                          "when": "browserFindWidgetVisible && activeEditor == 'workbench.editor.browser'" },
+    { "key": "enter",                 "command": "-workbench.action.chat.openInlineAttachment",
+                                         "when": "chatInputInlineAttachmentActive && chatIsEnabled && inChatInput" },
     { "key": "tab",                   "command": "-jumpToNextSnippetPlaceholder",
                                          "when": "hasNextTabstop && inSnippetMode && textInputFocus" },
     { "key": "shift+tab",             "command": "-jumpToPrevSnippetPlaceholder",
@@ -1952,7 +1954,7 @@
     { "key": "shift+cmd+f",           "command": "-workbench.view.search",
                                          "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/" },
     { "key": "cmd+backspace",         "command": "-agentSession.archive",
-                                         "when": "agentSessionsViewerFocused && !agentSessionIsArchived && !agentSessionIsChild" },
+                                         "when": "agentSessionChildCanArchive && agentSessionsViewerFocused && !agentSessionIsArchived || agentSessionsViewerFocused && !agentSessionIsArchived && !agentSessionIsChild" },
     { "key": "shift+i",               "command": "-agentSession.markRead",
                                          "when": "agentSessionsViewerFocused && listFocus && !inputFocus && !isSessionsWindow && !treestickyScrollFocused" },
     { "key": "shift+u",               "command": "-agentSession.markUnread",
@@ -1962,7 +1964,7 @@
     { "key": "f2",                    "command": "-agentSession.rename",
                                          "when": "chatSessionSupportsRename && inChat && !isSessionsWindow && !quickChatHasFocus" },
     { "key": "shift+cmd+backspace",   "command": "-agentSession.unarchive",
-                                         "when": "agentSessionIsArchived && agentSessionsViewerFocused && !agentSessionIsChild" },
+                                         "when": "agentSessionChildCanArchive && agentSessionIsArchived && agentSessionsViewerFocused || agentSessionIsArchived && agentSessionsViewerFocused && !agentSessionIsChild" },
     { "key": "shift+cmd+m",           "command": "-agentsVoice.toggleMute",
                                          "when": "agentsVoiceConnected && agentsVoiceEntitled && agentsVoiceInitiatedHere && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled || agentsVoiceConnected && agentsVoiceEntitled && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled && !isSessionsWindow || agentsVoiceConnected && agentsVoiceInitiatedHere && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled && config.agents.voice.useBYOKVoiceModel =~ /\\S/ || agentsVoiceConnected && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled && !isSessionsWindow && config.agents.voice.useBYOKVoiceModel =~ /\\S/ || agentsVoiceConnected && agentsVoiceEntitled && agentsVoiceInitiatedHere && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled && config.agents.voice.useBYOKVoiceModel =~ /\\S/ || agentsVoiceConnected && agentsVoiceEntitled && chatInputHasFocus && chatIsEnabled && config.agents.voice.enabled && !isSessionsWindow && config.agents.voice.useBYOKVoiceModel =~ /\\S/" },
     { "key": "alt+right",             "command": "-breadcrumbs.focusNextWithPicker",
